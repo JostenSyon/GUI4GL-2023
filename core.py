@@ -14,7 +14,7 @@ from cloudscraper.exceptions import CloudflareException, CaptchaException
 
 BASE_PATH = "{}/GLR_Manager".format(os.getenv("LOCALAPPDATA"))
 PROFILES_PATH = "{}/Profiles".format(BASE_PATH)
-CURRENT_VERSION = "1.3.8.5"
+CURRENT_VERSION = "1.3.8.6"
 
 class Game:
     def __init__(self, id, name, type):
@@ -115,7 +115,7 @@ class ProfileManager:
         os.remove("{}/{}.json".format(PROFILES_PATH,profile_name))
 
 class Config:
-    def __init__(self, steam_path = "", greenluma_path = "", no_hook = True, compatibility_mode = True, version = CURRENT_VERSION, last_profile = "default", check_update = True, use_steamdb = True):
+    def __init__(self, steam_path = "", greenluma_path = "", no_hook = True, compatibility_mode = True, version = CURRENT_VERSION, last_profile = "default", check_update = True, use_steamdb = False):
         self.steam_path = steam_path
         self.greenluma_path = greenluma_path
         self.no_hook = no_hook
@@ -230,17 +230,21 @@ def getDlcs(storeUrl):
     response = requests.get(baseUrl.format(appid, sanitazedName), params=params).json()
     return parseDlcs(response["results_html"])
 
-def parseGames(html):
+def parseGames(html, query):
+    query = query.lower().replace(" ", "")
     p = parser(html, 'html.parser')
 
     results = p.find_all("a", class_= "search_result_row")
 
     games = []
-    for result in results[:3]:
-        appid = result["data-ds-appid"]
-        name = result.find("span", class_= "title").get_text()
-        games.append(Game(appid, name, "Game"))
-        games.extend(getDlcs(result["href"]))
+    for result in results:
+        if result.has_attr("data-ds-appid"):
+            appid = result["data-ds-appid"]
+            name = result.find("span", class_= "title").get_text()
+            # Filter out garbage
+            if query in name.lower().replace(" ", "") and "," not in appid:
+                games.append(Game(appid, name, "Game"))
+                games.extend(getDlcs(result["href"]))
 
     return games
 
@@ -255,7 +259,7 @@ def queryfy(input_):
 
 def queryGames(query):
     try:
-        if config.use_steamdb:
+        if config.use_steamdb and False:
             scraper = cloudscraper.create_scraper()
             params = {"a": "app", "q": query, "type": -1, "category": 0}
             response = scraper.get("https://steamdb.info/search/", params=params)
@@ -263,7 +267,7 @@ def queryGames(query):
         else:
             params = {"term": query, "count": 25, "start": 0, "category1": 998}
             response = requests.get("https://store.steampowered.com/search/results", params=params)
-            return parseGames(response.content)
+            return parseGames(response.content, query)
     except (ConnectionError, ConnectTimeout, CloudflareException, CaptchaException) as err:
         logging.exception(err)
         return err
