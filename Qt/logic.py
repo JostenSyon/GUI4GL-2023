@@ -1,6 +1,6 @@
 from Qt.gui import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow, QHeaderView, QTableWidgetItem, QShortcut, QListWidget, QTableView
-from PyQt5.QtCore import  QAbstractItemModel, Qt, QModelIndex, QVariant, QThread, QEvent, pyqtSignal, QAbstractTableModel, QSortFilterProxyModel
+from PyQt5.QtCore import QAbstractItemModel, Qt, QModelIndex, QVariant, QThread, QEvent, pyqtSignal, QAbstractTableModel, QSortFilterProxyModel
 from PyQt5.QtGui import QKeySequence, QIcon
 from shutil import copyfile
 from cloudscraper.exceptions import CloudflareException, CaptchaException
@@ -15,13 +15,13 @@ games = []
 
 class MainWindow(QMainWindow):
     def __init__(self):
-        super(MainWindow,self).__init__()
+        super(MainWindow, self).__init__()
         self.main_window = Ui_MainWindow()
         self.main_window.setupUi(self)
         self.setup()
         self.connect_components()
         self.search_thread = SearchThread("")
-    
+
     def setup(self):
         self.setWindowIcon(QIcon("icon.ico"))
 
@@ -57,20 +57,20 @@ class MainWindow(QMainWindow):
 
     def connect_components(self):
         # Profile
-        self.main_window.create_profile.clicked.connect(lambda : self.toggle_widget(self.main_window.profile_create_window))
+        self.main_window.create_profile.clicked.connect(lambda: self.toggle_widget(self.main_window.profile_create_window))
         self.main_window.create_profile_btn.clicked.connect(self.create_profile)
-        self.main_window.cancel_profile_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.profile_create_window))
+        self.main_window.cancel_profile_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.profile_create_window))
         self.main_window.profile_selector.currentTextChanged.connect(self.select_profile)
         self.main_window.remove_game.clicked.connect(self.remove_selected)
         self.main_window.delete_profile.clicked.connect(self.delete_profile)
 
         # Steam Path
         self.main_window.save_steam_path.clicked.connect(self.set_steam_path)
-        self.main_window.cancel_steam_path_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.set_steam_path_window))
+        self.main_window.cancel_steam_path_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.set_steam_path_window))
 
         # GreenLuma Path
         self.main_window.save_greenluma_path.clicked.connect(self.set_greenluma_path)
-        self.main_window.cancel_greenluma_path_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.set_greenluma_path_window))
+        self.main_window.cancel_greenluma_path_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.set_greenluma_path_window))
 
         # Search Area
         self.main_window.search_btn.clicked.connect(self.search_games)
@@ -79,16 +79,16 @@ class MainWindow(QMainWindow):
 
         # Main Buttons
         self.main_window.generate_btn.clicked.connect(self.generate_app_list)
-        self.main_window.run_GreenLuma_btn.clicked.connect(lambda : self.show_popup("This will restart Steam if it's open, do you want to continue?", self.run_GreenLuma))
-        
+        self.main_window.run_GreenLuma_btn.clicked.connect(lambda: self.show_popup("This will restart Steam if it's open, do you want to continue?", self.run_GreenLuma))
+
         # Settings Window
-        self.main_window.settings_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.settings_window))
+        self.main_window.settings_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
         self.main_window.settings_save_btn.clicked.connect(self.save_settings)
-        self.main_window.settings_cancel_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.settings_window))
-        
+        self.main_window.settings_cancel_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
+
         # Popup Window
-        self.main_window.popup_btn2.clicked.connect(lambda : self.toggle_widget(self.main_window.generic_popup, True))
-    
+        self.main_window.popup_btn2.clicked.connect(lambda: self.toggle_widget(self.main_window.generic_popup, True))
+
     # Profile Functions
     def create_profile(self):
         name = self.main_window.profile_name.text()
@@ -98,14 +98,14 @@ class MainWindow(QMainWindow):
             self.main_window.profile_name.clear()
 
             self.main_window.profile_selector.setCurrentIndex(self.main_window.profile_selector.count() - 1)
-        
+
         self.toggle_widget(self.main_window.profile_create_window)
 
     def delete_profile(self):
         name = self.main_window.profile_selector.currentText()
         if name == "default":
             return
-        
+
         profile_manager.remove_profile(name)
 
         index = self.main_window.profile_selector.currentIndex()
@@ -137,7 +137,7 @@ class MainWindow(QMainWindow):
         query = self.main_window.game_search_text.text()
         if query == "":
             return
-        
+
         self.toggle_hidden(self.main_window.searching_frame)
 
         self.search_thread = SearchThread(query)
@@ -147,7 +147,7 @@ class MainWindow(QMainWindow):
     def search_games_done(self, result):
         self.toggle_hidden(self.main_window.searching_frame)
         if type(result) is list:
-            self.populate_table(self.main_window.search_result,result)
+            self.populate_table(self.main_window.search_result, result)
         else:
             if isinstance(result, CloudflareException) or isinstance(result, CaptchaException):
                 self.show_popup("Cloudflare bypass failed, disabling SteamDB.")
@@ -158,8 +158,8 @@ class MainWindow(QMainWindow):
 
     def setup_search_table(self):
         h_header = self.main_window.search_result.horizontalHeader()
-        h_header.setSectionResizeMode(1,QHeaderView.Stretch)
-        h_header.setSectionResizeMode(0,QHeaderView.ResizeToContents)
+        h_header.setSectionResizeMode(1, QHeaderView.Stretch)
+        h_header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
         h_header.setMaximumSectionSize(620)
 
     def populate_table(self, table: QTableView, data=[]):
@@ -167,7 +167,7 @@ class MainWindow(QMainWindow):
         sortable_model = QSortFilterProxyModel(model)
         sortable_model.setSourceModel(model)
         table.setModel(sortable_model)
-    
+
     def populate_list(self, list_, data):
         list_.clear()
         for item in data:
@@ -178,7 +178,7 @@ class MainWindow(QMainWindow):
         items = [selected.data() for selected in self.main_window.search_result.selectedIndexes()]
         if len(items) == 0:
             return
-        
+
         profile = profile_manager.profiles[self.main_window.profile_selector.currentText()]
 
         for game in core.Game.from_table_list(items):
@@ -192,7 +192,7 @@ class MainWindow(QMainWindow):
         items = self.main_window.games_list.selectedItems()
         if len(items) == 0:
             return
-        
+
         profile = profile_manager.profiles[self.main_window.profile_selector.currentText()]
 
         for item in items:
@@ -212,7 +212,7 @@ class MainWindow(QMainWindow):
 
     # Generation Functions
     def run_GreenLuma(self):
-        self.toggle_widget(self.main_window.generic_popup,True)
+        self.toggle_widget(self.main_window.generic_popup, True)
 
         if not self.generate_app_list(False):
             return
@@ -226,20 +226,20 @@ class MainWindow(QMainWindow):
 
             # if : else used instead of ternary operator for better readability
             if core.config.compatibility_mode or core.config.no_hook:
-                self.replaceConfig("EnableMitigationsOnChildProcess"," 0")
+                self.replaceConfig("EnableMitigationsOnChildProcess", " 0")
             else:
-                self.replaceConfig("EnableMitigationsOnChildProcess"," 1")
+                self.replaceConfig("EnableMitigationsOnChildProcess", " 1")
 
             if core.config.no_hook:
-                self.replaceConfig("CommandLine","")
-                self.replaceConfig("WaitForProcessTermination"," 0")
-                self.replaceConfig("EnableFakeParentProcess"," 1")
+                self.replaceConfig("CommandLine", "")
+                self.replaceConfig("WaitForProcessTermination", " 0")
+                self.replaceConfig("EnableFakeParentProcess", " 1")
                 self.replaceConfig("CreateFiles", " 2")
                 self.replaceConfig("FileToCreate_2", " StealthMode.bin", True)
             else:
-                self.replaceConfig("CommandLine"," -inhibitbootstrap")
-                self.replaceConfig("WaitForProcessTermination"," 1")
-                self.replaceConfig("EnableFakeParentProcess"," 0")
+                self.replaceConfig("CommandLine", " -inhibitbootstrap")
+                self.replaceConfig("WaitForProcessTermination", " 1")
+                self.replaceConfig("EnableFakeParentProcess", " 0")
                 self.replaceConfig("CreateFiles", " 1")
                 self.replaceConfig("FileToCreate_2", "")
 
@@ -261,7 +261,7 @@ class MainWindow(QMainWindow):
             self.toggle_widget(self.main_window.closing_steam)
             os.chdir(core.config.steam_path)
             try:
-                subprocess.run(["Steam.exe", "-shutdown"]) #Shutdown Steam
+                subprocess.run(["Steam.exe", "-shutdown"])  # Shutdown Steam
             except OSError as e:
                 core.logging.error("Error while closing Steam")
                 core.logging.exception(e)
@@ -277,7 +277,7 @@ class MainWindow(QMainWindow):
                     return
             self.toggle_widget(self.main_window.closing_steam, True)
             core.time.sleep(1)
-        
+
         os.chdir(core.config.greenluma_path)
         try:
             subprocess.Popen(["DLLInjector.exe"])
@@ -287,15 +287,15 @@ class MainWindow(QMainWindow):
             core.logging.exception(e)
             self.show_popup("Failed to run DLLInjector.exe, check errors.log")
 
-    def generate_app_list(self, popup = True):
+    def generate_app_list(self, popup=True):
         selected_profile = profile_manager.profiles[self.main_window.profile_selector.currentText()]
 
         if len(selected_profile.games) == 0:
             self.show_popup("No games to generate.")
             return False
-        
+
         core.createFiles(selected_profile.games)
-        if(popup):
+        if popup:
             self.show_popup("AppList Folder Generated")
 
         return True
@@ -308,7 +308,7 @@ class MainWindow(QMainWindow):
     def toggle_enable(self, widget):
         widget.setEnabled(not widget.isEnabled())
 
-    def toggle_widget(self, widget, force_close = False):
+    def toggle_widget(self, widget, force_close=False):
         if force_close:
             widget.lower()
             widget.setHidden(True)
@@ -319,7 +319,7 @@ class MainWindow(QMainWindow):
             widget.raise_()
         else:
             widget.lower()
-        
+
         self.toggle_hidden(widget)
         self.toggle_enable(widget)
 
@@ -377,7 +377,7 @@ class MainWindow(QMainWindow):
     def drop_event_handler(self, event):
         self.add_selected()
 
-    def show_popup(self, message, callback = None):
+    def show_popup(self, message, callback=None):
         self.main_window.popup_text.setText(message)
         if callback is None:
             callback = lambda: self.toggle_widget(self.main_window.generic_popup, True)
@@ -394,10 +394,10 @@ class MainWindow(QMainWindow):
         for process in psutil.process_iter():
             if process.name() == "Steam.exe" or process.name() == "SteamService.exe" or process.name() == "steamwebhelper.exe" or process.name() == "DLLInjector.exe":
                 return True
-        
+
         return False
 
-    def replaceConfig(self, name, new_value, append = False):
+    def replaceConfig(self, name, new_value, append=False):
         found = False
         ini_path = os.path.join(core.config.greenluma_path, "DLLInjector.ini")
         with fileinput.input(ini_path, inplace=True) as fp:
@@ -408,14 +408,14 @@ class MainWindow(QMainWindow):
                         found = True
                         tokens[1] = new_value
                         line = "=".join(tokens) + "\n"
-                print(line, end = "")
-            
+                print(line, end="")
+
         if append and not found:
             with open(ini_path, "at") as f:
                 f.write("\n{0} = {1}".format(name, new_value))
 
 class SearchThread(QThread):
-    signal = pyqtSignal('PyQt_PyObject')
+    signal = pyqtSignal("PyQt_PyObject")
 
     def __init__(self, query):
         super(SearchThread, self).__init__()
@@ -429,7 +429,7 @@ class TableModel(QAbstractTableModel):
     def __init__(self, datain=[], parent=None):
         super().__init__(parent=parent)
         self.datain = datain
-    
+
     def rowCount(self, parent=QModelIndex()):
         return len(self.datain)
 

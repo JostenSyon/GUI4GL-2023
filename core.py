@@ -27,7 +27,7 @@ class Game:
         return {"id": self.id, "name": self.name, "type": self.type}
 
     def to_string(self):
-        return "ID: {0}\nName: {1}\nType: {2}\n".format(self.id,self.name,self.type)
+        return "ID: {0}\nName: {1}\nType: {2}\n".format(self.id, self.name, self.type)
 
     def to_list(self):
         return [self.id, self.name, self.type]
@@ -41,36 +41,36 @@ class Game:
 
     @staticmethod
     def from_JSON(data):
-        return Game(data["id"],data["name"],data["type"])
-    
+        return Game(data["id"], data["name"], data["type"])
+
     @staticmethod
     def from_table_list(list):
         games = []
-        for i in range(int(len(list)/3)):
+        for i in range(int(len(list) / 3)):
             games.append(Game(list[i * 3], list[i * 3 + 1], list[i * 3 + 2]))
 
         return games
 
 class Profile:
-    def __init__(self,name = 'default',games = []):
+    def __init__(self, name="default", games=[]):
         self.name = name
         self.games = games
 
-    def add_game(self,game):
+    def add_game(self, game):
         self.games.append(game)
 
-    def remove_game(self,game):
+    def remove_game(self, game):
         if type(game) is Game:
             self.games.remove(game)
         else:
             for game_ in self.games:
-                if game_.name == game: 
+                if game_.name == game:
                     self.games.remove(game_)
-    
-    def export_profile(self,path = PROFILES_PATH):
+
+    def export_profile(self, path=PROFILES_PATH):
         data = {"name": self.name, "games": [game.to_JSON() for game in self.games]}
         with open("{}/{}.json".format(path, self.name), "w") as outfile:
-            json.dump(data,outfile,indent=4)
+            json.dump(data, outfile, indent=4)
 
     def __eq__(self, value):
         return self.name == value.name
@@ -92,31 +92,31 @@ class ProfileManager:
             self.create_profile("default")
 
         for filename in os.listdir(PROFILES_PATH):
-            with open("{}/{}".format(PROFILES_PATH,filename), "r") as file:
+            with open("{}/{}".format(PROFILES_PATH, filename), "r") as file:
                 try:
                     data = json.load(file)
                     self.register_profile(Profile.from_JSON(data))
                 except json.JSONDecodeError as e:
                     logging.exception(e)
                     file.close()
-                    os.remove("{}/{}".format(PROFILES_PATH,filename))
+                    os.remove("{}/{}".format(PROFILES_PATH, filename))
 
     def register_profile(self, profile):
         self.profiles[profile.name] = profile
 
-    def create_profile(self, name, games = []):
+    def create_profile(self, name, games=[]):
         if name == "":
             return
-        
-        self.register_profile(Profile(name,games))
+
+        self.register_profile(Profile(name, games))
         self.profiles[name].export_profile(PROFILES_PATH)
 
     def remove_profile(self, profile_name):
         self.profiles.pop(profile_name)
-        os.remove("{}/{}.json".format(PROFILES_PATH,profile_name))
+        os.remove("{}/{}.json".format(PROFILES_PATH, profile_name))
 
 class Config:
-    def __init__(self, steam_path = "", greenluma_path = "", no_hook = True, compatibility_mode = True, version = CURRENT_VERSION, last_profile = "default", check_update = True, use_steamdb = False):
+    def __init__(self, steam_path="", greenluma_path="", no_hook=True, compatibility_mode=True, version=CURRENT_VERSION, last_profile="default", check_update=True, use_steamdb=False):
         self.steam_path = steam_path
         self.greenluma_path = greenluma_path
         self.no_hook = no_hook
@@ -128,7 +128,7 @@ class Config:
 
     def export_config(self):
         with open("{}/config.json".format(BASE_PATH), "w") as outfile:
-            json.dump(vars(self),outfile,indent=4)
+            json.dump(vars(self), outfile, indent=4)
 
     @staticmethod
     def from_JSON(data):
@@ -136,7 +136,7 @@ class Config:
         for key, value in data.items():
             if key in vars(config).keys():
                 setattr(config, key, value)
-        
+
         if not "greenluma_path" in data and "steam_path" in data:
             if os.path.isfile(os.path.join(config.steam_path, "DLLInjector.exe")):
                 config.greenluma_path = config.steam_path
@@ -147,7 +147,7 @@ class Config:
         if not os.path.isfile("{}/config.json".format(BASE_PATH)):
             if not os.path.exists(BASE_PATH):
                 os.makedirs(BASE_PATH)
-            
+
             config = Config()
             config.export_config()
             return config
@@ -159,15 +159,16 @@ class Config:
                 except Exception as e:
                     logging.exception(e)
                     config = Config()
-                
+
                 config.version = CURRENT_VERSION
                 config.export_config()
                 return config
 
 class ConfigNotLoadedException(Exception):
     pass
+
 #-------------
-logging.basicConfig(filename='errors.log', filemode="w", level=logging.DEBUG)
+logging.basicConfig(filename="errors.log", filemode="w", level=logging.DEBUG)
 logging.info("GreenLuma 2020 Manager " + CURRENT_VERSION)
 config = Config.load_config()
 query_filter = re.compile("[ \u00a9\u00ae\u2122]")
@@ -192,34 +193,33 @@ def createFiles(games):
         os.makedirs("{}/AppList".format(config.greenluma_path))
 
     for i in range(len(games)):
-        with open("{}/AppList/{}.txt".format(config.greenluma_path,i),"w") as file:
+        with open("{}/AppList/{}.txt".format(config.greenluma_path, i), "w") as file:
             file.write(games[i].id)
 
 def parseSteamDB(html):
-    p = parser(html, 'html.parser')
+    p = parser(html, "html.parser")
 
     rows = p.find_all("tr", class_="app")
 
     games = []
     for row in rows:
         data = row("td")
-        if(data[1].get_text() != "Unknown"):
+        if data[1].get_text() != "Unknown":
             game = Game(data[0].get_text(), data[2].get_text(), data[1].get_text())
             games.append(game)
 
     return games
 
 def parseDlcs(html):
-    p = parser(html, 'html.parser')
+    p = parser(html, "html.parser")
 
-    dlcs = p.find_all("div", class_= "recommendation")
+    dlcs = p.find_all("div", class_="recommendation")
 
     games = []
     for dlc in dlcs:
         appid = dlc.find("a")["data-ds-appid"]
-        name = dlc.find("span", class_= "color_created").get_text()
+        name = dlc.find("span", class_="color_created").get_text()
         games.append(Game(appid, name, "DLC"))
-
 
     return games
 
@@ -235,22 +235,21 @@ def getDlcs(storeUrl):
 
 def parseGames(html, query):
     query = query_filter.sub("", query.lower())
-    p = parser(html, 'html.parser')
+    p = parser(html, "html.parser")
 
-    results = p.find_all("a", class_= "search_result_row")
+    results = p.find_all("a", class_="search_result_row")
 
     games = []
     for result in results:
         if result.has_attr("data-ds-appid"):
             appid = result["data-ds-appid"]
-            name = result.find("span", class_= "title").get_text()
+            name = result.find("span", class_="title").get_text()
             # Filter out garbage
             if "," not in appid and query in query_filter.sub("", name.lower()):
                 games.append(Game(appid, name, "Game"))
                 games.extend(getDlcs(result["href"]))
 
     return games
-
 
 def queryfy(input_):
     arr = input_.split()
@@ -280,13 +279,13 @@ def runUpdater():
         try:
             subprocess.run("GL2020 Updater.exe")
         except OSError as err:
-            logging.error('Error while checking for updates')
+            logging.error("Error while checking for updates")
             logging.exception(err)
 
     # Post update measure
     if "-PostUpdate" in sys.argv:
         for fl in os.listdir("./"):
             if fl.startswith("new_"):
-                real_name = fl.replace("new_","")
+                real_name = fl.replace("new_", "")
                 os.remove(real_name)
                 os.rename(fl, real_name)

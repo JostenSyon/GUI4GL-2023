@@ -6,7 +6,7 @@ from Qt.logic import MainWindow
 
 # Logs errors on crash
 def except_hook(type_, value, trace_back):
-    logging.basicConfig(filename='crash.log',filemode="w",level=logging.DEBUG)
+    logging.basicConfig(filename="crash.log", filemode="w", level=logging.DEBUG)
     logging.exception("".join(traceback.format_exception(type_, value, trace_back)))
     QApplication.quit()
 
