@@ -79,7 +79,7 @@ class MainWindow(QMainWindow):
 
         # Main Buttons
         self.main_window.generate_btn.clicked.connect(self.generate_app_list)
-        self.main_window.run_GreenLuma_btn.clicked.connect(lambda : self.show_popup("This will restart Steam if it's open do you want to continue?", self.run_GreenLuma))
+        self.main_window.run_GreenLuma_btn.clicked.connect(lambda : self.show_popup("This will restart Steam if it's open, do you want to continue?", self.run_GreenLuma))
         
         # Settings Window
         self.main_window.settings_btn.clicked.connect(lambda : self.toggle_widget(self.main_window.settings_window))
@@ -150,11 +150,11 @@ class MainWindow(QMainWindow):
             self.populate_table(self.main_window.search_result,result)
         else:
             if isinstance(result, CloudflareException) or isinstance(result, CaptchaException):
-                self.show_popup("Cloudflare bypass failed, disabling SteamDB.", lambda : self.toggle_widget(self.main_window.generic_popup, True))
+                self.show_popup("Cloudflare bypass failed, disabling SteamDB.")
                 with core.get_config() as config:
                     config.use_steamdb = False
             else:
-                self.show_popup("Can't connect to " + ("SteamDB" if core.config.use_steamdb else "Steam") + ". Check if you have internet connection.", lambda : self.toggle_widget(self.main_window.generic_popup, True))
+                self.show_popup("Can't connect to " + ("SteamDB" if core.config.use_steamdb else "Steam") + ". Check if you have internet connection.")
 
     def setup_search_table(self):
         h_header = self.main_window.search_result.horizontalHeader()
@@ -217,63 +217,86 @@ class MainWindow(QMainWindow):
         if not self.generate_app_list(False):
             return
 
-        args = ["DLLInjector.exe"]
-        self.replaceConfig("FileToCreate_1", " NoQuestion.bin", True)
-        
         with core.get_config() as config:
             config.no_hook = self.main_window.no_hook_checkbox.isChecked()
             config.compatibility_mode = self.main_window.compatibility_mode_checkbox.isChecked()
 
-        # if : else used instead of ternary operator for better readability
-        if core.config.compatibility_mode or core.config.no_hook:
-            self.replaceConfig("EnableMitigationsOnChildProcess"," 0")
-        else:
-            self.replaceConfig("EnableMitigationsOnChildProcess"," 1")
+        try:
+            self.replaceConfig("FileToCreate_1", " NoQuestion.bin", True)
 
-        if core.config.no_hook:
-            self.replaceConfig("CommandLine","")
-            self.replaceConfig("WaitForProcessTermination"," 0")
-            self.replaceConfig("EnableFakeParentProcess"," 1")
-            self.replaceConfig("CreateFiles", " 2")
-            self.replaceConfig("FileToCreate_2", " StealthMode.bin", True)
-        else:
-            self.replaceConfig("CommandLine"," -inhibitbootstrap")
-            self.replaceConfig("WaitForProcessTermination"," 1")
-            self.replaceConfig("EnableFakeParentProcess"," 0")
-            self.replaceConfig("CreateFiles", " 1")
-            self.replaceConfig("FileToCreate_2", "")
+            # if : else used instead of ternary operator for better readability
+            if core.config.compatibility_mode or core.config.no_hook:
+                self.replaceConfig("EnableMitigationsOnChildProcess"," 0")
+            else:
+                self.replaceConfig("EnableMitigationsOnChildProcess"," 1")
 
-        if core.config.steam_path != core.config.greenluma_path:
-            self.replaceConfig("UseFullPathsFromIni", " 1")
-            self.replaceConfig("Exe", " " + os.path.join(core.config.steam_path, "Steam.exe"))
-            self.replaceConfig("Dll", " " + os.path.join(core.config.greenluma_path, "GreenLuma_2020_x86.dll"))
-        else:
-            self.replaceConfig("UseFullPathsFromIni", " 0")
-            self.replaceConfig("Exe", " Steam.exe")
-            self.replaceConfig("Dll", " GreenLuma_2020_x86.dll")
+            if core.config.no_hook:
+                self.replaceConfig("CommandLine","")
+                self.replaceConfig("WaitForProcessTermination"," 0")
+                self.replaceConfig("EnableFakeParentProcess"," 1")
+                self.replaceConfig("CreateFiles", " 2")
+                self.replaceConfig("FileToCreate_2", " StealthMode.bin", True)
+            else:
+                self.replaceConfig("CommandLine"," -inhibitbootstrap")
+                self.replaceConfig("WaitForProcessTermination"," 1")
+                self.replaceConfig("EnableFakeParentProcess"," 0")
+                self.replaceConfig("CreateFiles", " 1")
+                self.replaceConfig("FileToCreate_2", "")
+
+            if core.config.steam_path != core.config.greenluma_path:
+                self.replaceConfig("UseFullPathsFromIni", " 1")
+                self.replaceConfig("Exe", " " + os.path.join(core.config.steam_path, "Steam.exe"))
+                self.replaceConfig("Dll", " " + os.path.join(core.config.greenluma_path, "GreenLuma_2020_x86.dll"))
+            else:
+                self.replaceConfig("UseFullPathsFromIni", " 0")
+                self.replaceConfig("Exe", " Steam.exe")
+                self.replaceConfig("Dll", " GreenLuma_2020_x86.dll")
+        except OSError as e:
+            core.logging.error("Error while modifying DLLInjector.ini")
+            core.logging.exception(e)
+            self.show_popup("Failed to update DLLInjector.ini, check errors.log")
+            return
 
         if self.is_steam_running():
             self.toggle_widget(self.main_window.closing_steam)
             os.chdir(core.config.steam_path)
-            subprocess.run(["Steam.exe", "-shutdown"]) #Shutdown Steam
+            try:
+                subprocess.run(["Steam.exe", "-shutdown"]) #Shutdown Steam
+            except OSError as e:
+                core.logging.error("Error while closing Steam")
+                core.logging.exception(e)
+                self.toggle_widget(self.main_window.closing_steam, True)
+                self.show_popup("Failed to close Steam, check errors.log")
+                return
+            start_time = core.time.monotonic()
             while self.is_steam_running():
                 core.time.sleep(1)
+                if core.time.monotonic() - start_time > 30:
+                    self.toggle_widget(self.main_window.closing_steam, True)
+                    self.show_popup("Timed out waiting for steam to close")
+                    return
+            self.toggle_widget(self.main_window.closing_steam, True)
             core.time.sleep(1)
         
         os.chdir(core.config.greenluma_path)
-        subprocess.Popen(args)
-        self.close()
+        try:
+            subprocess.Popen(["DLLInjector.exe"])
+            self.close()
+        except OSError as e:
+            core.logging.error("Error while launching DLLInjector.exe")
+            core.logging.exception(e)
+            self.show_popup("Failed to run DLLInjector.exe, check errors.log")
 
     def generate_app_list(self, popup = True):
         selected_profile = profile_manager.profiles[self.main_window.profile_selector.currentText()]
 
         if len(selected_profile.games) == 0:
-            self.show_popup("No games to generate.", lambda : self.toggle_widget(self.main_window.generic_popup,True))
+            self.show_popup("No games to generate.")
             return False
         
         core.createFiles(selected_profile.games)
         if(popup):
-            self.show_popup("AppList Folder Generated", lambda : self.toggle_widget(self.main_window.generic_popup, True))
+            self.show_popup("AppList Folder Generated")
 
         return True
 
@@ -354,8 +377,15 @@ class MainWindow(QMainWindow):
     def drop_event_handler(self, event):
         self.add_selected()
 
-    def show_popup(self, message, callback):
+    def show_popup(self, message, callback = None):
         self.main_window.popup_text.setText(message)
+        if callback is None:
+            callback = lambda: self.toggle_widget(self.main_window.generic_popup, True)
+        # Remove old callbacks
+        try:
+            self.main_window.popup_btn1.clicked.disconnect()
+        except TypeError:
+            pass
         self.main_window.popup_btn1.clicked.connect(callback)
 
         self.toggle_widget(self.main_window.generic_popup)
@@ -369,7 +399,8 @@ class MainWindow(QMainWindow):
 
     def replaceConfig(self, name, new_value, append = False):
         found = False
-        with fileinput.input(core.config.greenluma_path + "/DLLInjector.ini", inplace=True) as fp:
+        ini_path = os.path.join(core.config.greenluma_path, "DLLInjector.ini")
+        with fileinput.input(ini_path, inplace=True) as fp:
             for line in fp:
                 if not line.startswith("#"):
                     tokens = line.split("=")
@@ -380,7 +411,7 @@ class MainWindow(QMainWindow):
                 print(line, end = "")
             
         if append and not found:
-            with open(core.config.greenluma_path + "/DLLInjector.ini", "at") as f:
+            with open(ini_path, "at") as f:
                 f.write("\n{0} = {1}".format(name, new_value))
 
 class SearchThread(QThread):

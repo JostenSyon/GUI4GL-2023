@@ -1,5 +1,6 @@
 import cloudscraper
 import os
+import re
 import requests
 import subprocess
 import shutil
@@ -14,7 +15,7 @@ from cloudscraper.exceptions import CloudflareException, CaptchaException
 
 BASE_PATH = "{}/GLR_Manager".format(os.getenv("LOCALAPPDATA"))
 PROFILES_PATH = "{}/Profiles".format(BASE_PATH)
-CURRENT_VERSION = "1.3.8.6"
+CURRENT_VERSION = "1.3.8.7"
 
 class Game:
     def __init__(self, id, name, type):
@@ -167,7 +168,9 @@ class ConfigNotLoadedException(Exception):
     pass
 #-------------
 logging.basicConfig(filename='errors.log', filemode="w", level=logging.DEBUG)
+logging.info("GreenLuma 2020 Manager " + CURRENT_VERSION)
 config = Config.load_config()
+query_filter = re.compile("[ \u00a9\u00ae\u2122]")
 
 @contextmanager
 def get_config():
@@ -225,13 +228,13 @@ def getDlcs(storeUrl):
     appid = appinfo[0]
     sanitazedName = appinfo[1]
 
-    params = {"sort": "newreleases", "count": 50, "start": 0}
+    params = {"sort": "newreleases", "count": 64, "start": 0}
     baseUrl = "https://store.steampowered.com/dlc/{0}/{1}/ajaxgetfilteredrecommendations"
     response = requests.get(baseUrl.format(appid, sanitazedName), params=params).json()
     return parseDlcs(response["results_html"])
 
 def parseGames(html, query):
-    query = query.lower().replace(" ", "")
+    query = query_filter.sub("", query.lower())
     p = parser(html, 'html.parser')
 
     results = p.find_all("a", class_= "search_result_row")
@@ -242,7 +245,7 @@ def parseGames(html, query):
             appid = result["data-ds-appid"]
             name = result.find("span", class_= "title").get_text()
             # Filter out garbage
-            if query in name.lower().replace(" ", "") and "," not in appid:
+            if "," not in appid and query in query_filter.sub("", name.lower()):
                 games.append(Game(appid, name, "Game"))
                 games.extend(getDlcs(result["href"]))
 
@@ -273,10 +276,11 @@ def queryGames(query):
         return err
 
 def runUpdater():
-    if "-NoUpdate" not in sys.argv and config.check_update:
+    if "-NoUpdate" not in sys.argv and config.check_update and os.path.exists("GL2020 Updater.exe"):
         try:
             subprocess.run("GL2020 Updater.exe")
-        except FileNotFoundError as err:
+        except OSError as err:
+            logging.error('Error while checking for updates')
             logging.exception(err)
 
     # Post update measure
