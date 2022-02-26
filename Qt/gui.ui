@@ -975,7 +975,7 @@ color: rgb(6, 11, 8);</string>
       </font>
      </property>
      <property name="text">
-      <string>NoHook</string>
+      <string>Stealth mode</string>
      </property>
      <property name="checked">
       <bool>true</bool>

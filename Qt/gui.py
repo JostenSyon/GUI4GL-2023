@@ -542,7 +542,7 @@ class Ui_MainWindow(object):
         self.label_games_list.setText(_translate("MainWindow", "Games List"))
         self.delete_profile.setText(_translate("MainWindow", "Delete Profile"))
         self.game_search_text.setPlaceholderText(_translate("MainWindow", "Search Game"))
-        self.no_hook_checkbox.setText(_translate("MainWindow", "NoHook"))
+        self.no_hook_checkbox.setText(_translate("MainWindow", "Stealth Mode"))
         self.version_label.setText(_translate("MainWindow", "v0.0.0"))
         self.settings_save_btn.setText(_translate("MainWindow", "Save"))
         self.settings_cancel_btn.setText(_translate("MainWindow", "Cancel"))
