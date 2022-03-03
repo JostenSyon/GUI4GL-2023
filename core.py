@@ -92,14 +92,13 @@ class ProfileManager:
             self.create_profile("default")
 
         for filename in os.listdir(PROFILES_PATH):
-            with open("{}/{}".format(PROFILES_PATH, filename), "r") as file:
-                try:
-                    data = json.load(file)
-                    self.register_profile(Profile.from_JSON(data))
-                except json.JSONDecodeError as e:
-                    logging.exception(e)
-                    file.close()
-                    os.remove("{}/{}".format(PROFILES_PATH, filename))
+            if os.path.splitext(filename)[1] == ".json":
+                with open("{}/{}".format(PROFILES_PATH, filename), "r") as file:
+                    try:
+                        data = json.load(file)
+                        self.register_profile(Profile.from_JSON(data))
+                    except (UnicodeDecodeError, json.JSONDecodeError) as e:
+                        logging.exception(e)
 
     def register_profile(self, profile):
         self.profiles[profile.name] = profile
