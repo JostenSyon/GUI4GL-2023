@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8A2401D7-EE59-48EC-A6D8-069EF807C82A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GL2020_Updater</RootNamespace>
+    <RootNamespace>GL2023_Updater</RootNamespace>
     <AssemblyName>GL2020 Updater</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

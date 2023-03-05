@@ -534,7 +534,7 @@ class Ui_MainWindow(object):
         self.compatibility_mode_checkbox.setText(_translate("MainWindow", "Compatibility Mode"))
         self.label_searching.setText(_translate("MainWindow", "Searching..."))
         self.create_profile.setText(_translate("MainWindow", "New Profile"))
-        self.label_main.setText(_translate("MainWindow", "GreenLuma 2020 Manager"))
+        self.label_main.setText(_translate("MainWindow", "GreenLuma 2023 Manager"))
         self.run_GreenLuma_btn.setText(_translate("MainWindow", "Run GreenLuma"))
         self.add_to_profile.setText(_translate("MainWindow", "Add Games"))
         self.games_list.setSortingEnabled(True)

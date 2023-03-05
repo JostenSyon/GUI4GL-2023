@@ -169,7 +169,7 @@ class ConfigNotLoadedException(Exception):
 
 #-------------
 logging.basicConfig(filename="errors.log", filemode="w", level=logging.DEBUG)
-logging.info("GreenLuma 2020 Manager " + CURRENT_VERSION)
+logging.info("GreenLuma 2023 Manager " + CURRENT_VERSION)
 config = Config.load_config()
 query_filter = re.compile("[ \u00a9\u00ae\u2122]")
 

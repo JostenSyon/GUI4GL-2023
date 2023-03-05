@@ -6,10 +6,10 @@ using System.Net;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 
-namespace GL2020_Updater {
+namespace GL2023_Updater {
    class Updater {
       private string dataPath = Environment.ExpandEnvironmentVariables("%localappdata%/GLR_Manager/");
-      private string downloadURL = "https://github.com/BlueAmulet/GreenLuma-2020-Manager/releases/download/v{0}/GreenLuma.2020.Manager.zip";
+      private string downloadURL = "https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/download/v{0}/GreenLuma.2020.Manager.zip";
       private string latestVersionString;
       private string currentVersionString;
       private StreamWriter logger = Utils.CreateLogger();

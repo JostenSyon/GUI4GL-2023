@@ -7,11 +7,11 @@ using System.IO;
 using System.IO.Compression;
 using System.Diagnostics;
 
-namespace GL2020_Updater {
+namespace GL2023_Updater {
    class Utils {
       public static async Task<string> GetLatest() {
          using (var httpClient = new HttpClient()) {
-            HttpResponseMessage response = await httpClient.GetAsync("https://github.com/BlueAmulet/GreenLuma-2020-Manager/releases/latest");
+            HttpResponseMessage response = await httpClient.GetAsync("https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest");
             var header = response.RequestMessage.RequestUri.Segments;
             return header.Last().Substring(1);
          }
