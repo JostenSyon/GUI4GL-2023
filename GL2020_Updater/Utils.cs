@@ -9,32 +9,32 @@ using System.Diagnostics;
 
 namespace GL2023_Updater
 {
-	class Utils
+	static class Utils
 	{
 		public static async Task<string> GetLatest()
 		{
-			using (var httpClient = new HttpClient())
+			using (HttpClient httpClient = new HttpClient())
 			{
 				HttpResponseMessage response = await httpClient.GetAsync("https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest");
-				var header = response.RequestMessage.RequestUri.Segments;
+				string[] header = response.RequestMessage.RequestUri.Segments;
 				return header.Last().Substring(1);
 			}
 		}
 
 		public static Task DownloadAndExtractFile(string URL)
 		{
-			using (var client = new WebClient())
+			using (WebClient client = new WebClient())
 			{
 				client.Proxy = null;
-				client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(CompletedHandler);
-				client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressHandler);
+				client.DownloadFileCompleted += CompletedHandler;
+				client.DownloadProgressChanged += ProgressHandler;
 				return client.DownloadFileTaskAsync(new Uri(URL), "Release.zip");
 			}
 		}
 
 		private static void ProgressHandler(object sender, DownloadProgressChangedEventArgs e)
 		{
-			Console.Write(String.Format("{0}%\r", e.ProgressPercentage.ToString()));
+			Console.Write(string.Format("{0}%\r", e.ProgressPercentage.ToString()));
 		}
 
 		private static void CompletedHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
@@ -50,7 +50,7 @@ namespace GL2023_Updater
 			{
 				foreach (ZipArchiveEntry entry in archive.Entries)
 				{
-					var fileName = entry.FullName.Split('/')[1];
+					string fileName = entry.FullName.Split('/')[1];
 					if (fileName != "")
 					{
 						Console.WriteLine(Path.Combine("./", fileName));
@@ -58,7 +58,7 @@ namespace GL2023_Updater
 						{
 							entry.ExtractToFile(Path.Combine("./", fileName), true);
 						}
-						catch (Exception e)
+						catch (Exception)
 						{
 							entry.ExtractToFile(Path.Combine("./", "new_" + fileName), true);
 						}
