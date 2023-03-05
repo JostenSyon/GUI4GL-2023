@@ -12,6 +12,7 @@ import fileinput
 
 profile_manager = core.ProfileManager()
 games = []
+default_dll = "GreenLuma_2020_x86.dll"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -25,7 +26,7 @@ class MainWindow(QMainWindow):
     def setup(self):
         self.setWindowIcon(QIcon("icon.ico"))
 
-        # Hidde Other Windows
+        # Hide Other Windows
         self.main_window.profile_create_window.setHidden(True)
         self.main_window.searching_frame.setHidden(True)
         self.main_window.set_steam_path_window.setHidden(True)
@@ -43,8 +44,10 @@ class MainWindow(QMainWindow):
         self.populate_table(self.main_window.search_result)
         self.show_profile_names()
         self.show_profile_games(profile_manager.profiles[self.main_window.profile_selector.currentText()])
-        self.setup_steam_path()
         self.setup_greenluma_path()
+        self.setup_steam_path()
+        if not core.config.manager_msg:
+            self.show_popup("Thank you for using the unofficial Manager for GreenLuma 2020\n\nThis is just a game manager, and requires you to separately download GreenLuma.", self.acknowledge_manager, lambda: core.sys.exit())
         self.setup_search_table()
         # self.main_window.main_panel.raise_()
 
@@ -78,16 +81,13 @@ class MainWindow(QMainWindow):
         self.main_window.add_to_profile.clicked.connect(self.add_selected)
 
         # Main Buttons
-        self.main_window.generate_btn.clicked.connect(self.generate_app_list)
+        self.main_window.generate_btn.clicked.connect(lambda: self.generate_app_list())
         self.main_window.run_GreenLuma_btn.clicked.connect(lambda: self.show_popup("This will restart Steam if it's open, do you want to continue?", self.run_GreenLuma))
 
         # Settings Window
         self.main_window.settings_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
         self.main_window.settings_save_btn.clicked.connect(self.save_settings)
         self.main_window.settings_cancel_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
-
-        # Popup Window
-        self.main_window.popup_btn2.clicked.connect(lambda: self.toggle_widget(self.main_window.generic_popup, True))
 
     # Profile Functions
     def create_profile(self):
@@ -212,7 +212,7 @@ class MainWindow(QMainWindow):
 
     # Generation Functions
     def run_GreenLuma(self):
-        self.toggle_widget(self.main_window.generic_popup, True)
+        self.hide_popup()
 
         if not self.generate_app_list(False):
             return
@@ -221,6 +221,43 @@ class MainWindow(QMainWindow):
             config.no_hook = self.main_window.no_hook_checkbox.isChecked()
             config.compatibility_mode = self.main_window.compatibility_mode_checkbox.isChecked()
 
+        # Verify required components of GreenLuma are present
+        gl_path = core.config.greenluma_path
+        for fname in ["DLLInjector.exe", "DLLInjector.ini"]:
+            test_path = os.path.join(gl_path, fname)
+            if not os.path.exists(test_path):
+                core.logging.error(f"{fname} not found at {test_path}")
+                self.show_popup(f"{fname} is missing, please reinstall GreenLuma")
+                return
+
+        # Read Dll out of DLLInjector.ini
+        gl_dll = None
+        with open(os.path.join(gl_path, "DLLInjector.ini")) as f:
+            for line in f:
+                if "#" in line:
+                    line = line.split("#", 1)[0]
+                if "=" in line:
+                    tokens = line.split("=", 1)
+                    if tokens[0].strip() == "Dll":
+                        gl_dll = tokens[1].strip()
+                        break
+        if gl_dll is None:
+            core.logging.warning(f"Failed to detect Dll from DLLInjector.ini, using default of {default_dll}")
+            gl_dll = default_dll
+        if not os.path.isabs(gl_dll) or not os.path.exists(gl_dll):
+            gl_dll = os.path.basename(gl_dll)
+            if not os.path.exists(os.path.join(gl_path, gl_dll)) and os.path.exists(os.path.join(gl_path, default_dll)):
+                core.logging.warning(f"Correcting Dll from {gl_dll} to {default_dll}")
+                gl_dll = default_dll
+            test_path = os.path.join(gl_path, gl_dll)
+            if not os.path.exists(test_path):
+                core.logging.error(f"{gl_dll} not found at {test_path}")
+                self.show_popup(f"{gl_dll} is missing, please reinstall GreenLuma")
+                return
+        elif gl_dll == os.path.join(gl_path, os.path.basename(gl_dll)):
+            gl_dll = os.path.basename(gl_dll)
+
+        # Update DLLInjector.ini
         try:
             self.replaceConfig("FileToCreate_1", " NoQuestion.bin", True)
 
@@ -243,14 +280,17 @@ class MainWindow(QMainWindow):
                 self.replaceConfig("CreateFiles", " 1")
                 self.replaceConfig("FileToCreate_2", "")
 
-            if core.config.steam_path != core.config.greenluma_path:
+            if core.config.steam_path != core.config.greenluma_path or os.path.isabs(gl_dll):
                 self.replaceConfig("UseFullPathsFromIni", " 1")
                 self.replaceConfig("Exe", " " + os.path.join(core.config.steam_path, "Steam.exe"))
-                self.replaceConfig("Dll", " " + os.path.join(core.config.greenluma_path, "GreenLuma_2020_x86.dll"))
+                if os.path.isabs(gl_dll):
+                    self.replaceConfig("Dll", " " + gl_dll)
+                else:
+                    self.replaceConfig("Dll", " " + os.path.join(core.config.greenluma_path, gl_dll))
             else:
                 self.replaceConfig("UseFullPathsFromIni", " 0")
                 self.replaceConfig("Exe", " Steam.exe")
-                self.replaceConfig("Dll", " GreenLuma_2020_x86.dll")
+                self.replaceConfig("Dll", " " + gl_dll)
         except OSError as e:
             core.logging.error("Error while modifying DLLInjector.ini")
             core.logging.exception(e)
@@ -281,6 +321,7 @@ class MainWindow(QMainWindow):
         os.chdir(core.config.greenluma_path)
         try:
             subprocess.Popen(["DLLInjector.exe"])
+            core.logging.info("Launched DLLInjector.exe, exiting")
             self.close()
         except OSError as e:
             core.logging.error("Error while launching DLLInjector.exe")
@@ -322,6 +363,11 @@ class MainWindow(QMainWindow):
 
         self.toggle_hidden(widget)
         self.toggle_enable(widget)
+
+    def acknowledge_manager(self):
+        with core.get_config() as config:
+            config.manager_msg = True
+        self.hide_popup()
 
     def set_steam_path(self):
         path = self.main_window.steam_path.text()
@@ -377,16 +423,26 @@ class MainWindow(QMainWindow):
     def drop_event_handler(self, event):
         self.add_selected()
 
-    def show_popup(self, message, callback=None):
+    def hide_popup(self, event=None):
+        self.toggle_widget(self.main_window.generic_popup, True)
+
+    def show_popup(self, message, ok_callback=None, cx_callback=None):
         self.main_window.popup_text.setText(message)
-        if callback is None:
-            callback = lambda: self.toggle_widget(self.main_window.generic_popup, True)
+        if ok_callback is None:
+            ok_callback = self.hide_popup
+        if cx_callback is None:
+            cx_callback = self.hide_popup
         # Remove old callbacks
         try:
             self.main_window.popup_btn1.clicked.disconnect()
         except TypeError:
             pass
-        self.main_window.popup_btn1.clicked.connect(callback)
+        try:
+            self.main_window.popup_btn2.clicked.disconnect()
+        except TypeError:
+            pass
+        self.main_window.popup_btn1.clicked.connect(ok_callback)
+        self.main_window.popup_btn2.clicked.connect(cx_callback)
 
         self.toggle_widget(self.main_window.generic_popup)
 
@@ -402,8 +458,11 @@ class MainWindow(QMainWindow):
         ini_path = os.path.join(core.config.greenluma_path, "DLLInjector.ini")
         with fileinput.input(ini_path, inplace=True) as fp:
             for line in fp:
-                if not line.startswith("#"):
-                    tokens = line.split("=")
+                data = line
+                if "#" in data:
+                    data = data.split("#", 1)[0]
+                if "=" in data:
+                    tokens = data.split("=", 1)
                     if tokens[0].strip() == name:
                         found = True
                         tokens[1] = new_value

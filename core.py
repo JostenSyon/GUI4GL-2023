@@ -115,7 +115,7 @@ class ProfileManager:
         os.remove("{}/{}.json".format(PROFILES_PATH, profile_name))
 
 class Config:
-    def __init__(self, steam_path="", greenluma_path="", no_hook=True, compatibility_mode=True, version=CURRENT_VERSION, last_profile="default", check_update=True, use_steamdb=False):
+    def __init__(self, steam_path="", greenluma_path="", no_hook=True, compatibility_mode=True, version=CURRENT_VERSION, last_profile="default", check_update=True, use_steamdb=False, manager_msg=False):
         self.steam_path = steam_path
         self.greenluma_path = greenluma_path
         self.no_hook = no_hook
@@ -124,6 +124,7 @@ class Config:
         self.last_profile = last_profile
         self.check_update = check_update
         self.use_steamdb = use_steamdb
+        self.manager_msg = manager_msg
 
     def export_config(self):
         with open("{}/config.json".format(BASE_PATH), "w") as outfile:
