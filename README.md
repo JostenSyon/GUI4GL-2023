@@ -1,4 +1,4 @@
-# GreenLuma 2023 Manager
+# Gui4GL-2023 <--> GreenLuma 2023 Manager
 An app to manage the Steam unlocker "GreenLuma 2023" AppList folder 
 
 
