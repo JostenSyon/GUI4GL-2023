@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GreenLuma 2020 Manager</string>
+   <string>GreenLuma 2023 Manager</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(18, 18, 18);</string>
@@ -94,8 +94,8 @@ QAbstractItemView::item:selected{
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>270</y>
+      <x>10</x>
+      <y>170</y>
       <width>471</width>
       <height>161</height>
      </rect>
@@ -185,8 +185,8 @@ color: rgb(6, 11, 8);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>270</y>
+      <x>10</x>
+      <y>340</y>
       <width>471</width>
       <height>161</height>
      </rect>
@@ -297,8 +297,8 @@ color: rgb(6, 11, 8);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>270</y>
+      <x>10</x>
+      <y>0</y>
       <width>471</width>
       <height>161</height>
      </rect>
@@ -409,8 +409,8 @@ color: rgb(6, 11, 8);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>270</y>
+      <x>580</x>
+      <y>10</y>
       <width>531</width>
       <height>161</height>
      </rect>
@@ -484,8 +484,8 @@ color: rgb(6, 11, 8);</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>240</y>
+      <x>490</x>
+      <y>190</y>
       <width>621</width>
       <height>181</height>
      </rect>
@@ -496,7 +496,7 @@ color: rgb(6, 11, 8);</string>
     <widget class="QLabel" name="label_close_steam">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>30</x>
        <y>30</y>
        <width>521</width>
        <height>121</height>
@@ -1023,6 +1023,247 @@ color: rgb(6, 11, 8);</string>
       </size>
      </property>
     </widget>
+    <widget class="QWidget" name="settings_window" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>220</y>
+       <width>660</width>
+       <height>280</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 1px solid white</string>
+     </property>
+     <widget class="QPushButton" name="settings_save_btn">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>230</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settings_cancel_btn">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>230</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="settings_label_steam">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>45</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 0px</string>
+      </property>
+      <property name="text">
+       <string>Steam Path:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="update_checkbox">
+      <property name="geometry">
+       <rect>
+        <x>22</x>
+        <y>190</y>
+        <width>231</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="toolTip">
+       <string>Enable Automatic Updates</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: solid 0px</string>
+      </property>
+      <property name="text">
+       <string>Check For Updates On Startup</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="settings_steam_path">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>74</y>
+        <width>481</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Path</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="settings_label_greenluma">
+      <property name="geometry">
+       <rect>
+        <x>25</x>
+        <y>115</y>
+        <width>167</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Consolas</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 0px</string>
+      </property>
+      <property name="text">
+       <string>GreenLuma Path:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="settings_greenluma_path">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>144</y>
+        <width>481</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+      </property>
+      <property name="placeholderText">
+       <string>Path</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settings_steam_path_btn">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>80</y>
+        <width>121</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open Path</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="settings_greenluma_path_btn">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>150</y>
+        <width>121</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open Path</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="settings_label_main">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>621</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 0px</string>
+      </property>
+      <property name="text">
+       <string>Settings</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <zorder>settings_window</zorder>
     <zorder>profile_selector</zorder>
     <zorder>label_profile</zorder>
     <zorder>remove_game</zorder>
@@ -1043,226 +1284,11 @@ color: rgb(6, 11, 8);</string>
     <zorder>settings_btn</zorder>
     <zorder>searching_frame</zorder>
    </widget>
-   <widget class="QWidget" name="settings_window" native="true">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>190</y>
-      <width>660</width>
-      <height>280</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid white</string>
-    </property>
-    <widget class="QPushButton" name="settings_save_btn">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>230</y>
-       <width>150</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Save</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="settings_cancel_btn">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>230</y>
-       <width>150</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="settings_label_main">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>621</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>Settings</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="settings_label_steam">
-     <property name="geometry">
-      <rect>
-       <x>25</x>
-       <y>45</y>
-       <width>131</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-       <kerning>true</kerning>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>Steam Path:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="update_checkbox">
-     <property name="geometry">
-      <rect>
-       <x>22</x>
-       <y>190</y>
-       <width>231</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="toolTip">
-      <string>Enable Automatic Updates</string>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: solid 0px</string>
-     </property>
-     <property name="text">
-      <string>Check For Updates On Startup</string>
-     </property>
-     <property name="checkable">
-      <bool>true</bool>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="settings_steam_path">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>74</y>
-       <width>621</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-     </property>
-     <property name="placeholderText">
-      <string>Path</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="settings_label_greenluma">
-     <property name="geometry">
-      <rect>
-       <x>25</x>
-       <y>115</y>
-       <width>167</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Consolas</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-       <kerning>true</kerning>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>GreenLuma Path:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="settings_greenluma_path">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>144</y>
-       <width>621</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-     </property>
-     <property name="placeholderText">
-      <string>Path</string>
-     </property>
-    </widget>
-   </widget>
-   <zorder>settings_window</zorder>
    <zorder>profile_create_window</zorder>
    <zorder>set_steam_path_window</zorder>
    <zorder>set_greenluma_path_window</zorder>
-   <zorder>generic_popup</zorder>
    <zorder>closing_steam</zorder>
+   <zorder>generic_popup</zorder>
    <zorder>main_panel</zorder>
   </widget>
  </widget>

@@ -15,7 +15,7 @@ namespace GL2023_Updater
 		{
 			using (HttpClient httpClient = new HttpClient())
 			{
-				HttpResponseMessage response = await httpClient.GetAsync("https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest");
+				HttpResponseMessage response = await httpClient.GetAsync("https://github.com/JostenSyon/GUI4GL-2023/releases/latest");
 				string[] header = response.RequestMessage.RequestUri.Segments;
 				return header.Last().Substring(1);
 			}

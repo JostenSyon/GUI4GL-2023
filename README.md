@@ -1,13 +1,28 @@
 # GreenLuma 2023 Manager
-An app to manage the Steam unlocker "GreenLuma 2023" AppList folder
+An app to manage the Steam unlocker "GreenLuma 2023" AppList folder 
 
-This is a fork of ImaniiTy's GreenLuma Reborn Manager to better support GL2023  
+
+
+This is a fork of BlueAmulet GreenLuma Reborn Manager to better support GL2023 
+Thanks also to ImaniiTy, the original dev of the GreenLuma Reborn Manager
+
+
+JostenSyon feauture:
+Folder Browser Dialog for error proof path (steam and GreenLuma)
+...
+more feauture soon
+
+
+BlueAmulet feauture:
 Handles portable GL2023 (not in Steam folder)  
 Better searching  
 Improved error handling  
 Other bugfixes and improvements
 
-## Latest release: **[GreenLuma 2023 Manager](https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest)**
+
+
+
+## BlueAmulet release: **[BlueAmulet GreenLuma 2023 Manager](https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest)**
 Below text is mostly sourced from ImaniiTy's README
 
 ## What is [GreenLuma 2023](https://cs.rin.ru/forum/viewtopic.php?f=29&t=103709)?
@@ -29,7 +44,7 @@ Also, keep in mind that not **every game** is available to play through Steam fa
 
 #### Credits to [@linkthehylian](https://github.com/linkthehylian) for this brief explanation
 
-I **highly advise** you to use the "Legit stealth mode" checking the box "NoHook" on my program:
+I **highly advise** you to use the "Legit stealth mode" checking the box "Stealth mode" on my program:
 ![alt text](https://i.imgur.com/xpAXU1b.png)
 
 ## Features
@@ -47,7 +62,11 @@ I **highly advise** you to use the "Legit stealth mode" checking the box "NoHook
 
 ![alt text](https://i.imgur.com/B8nDYm3.png)
 
-## Future Plans
+## Future Plans (JostenSyon)
+* Work on the UI
+* Manual add for game and dlc by id (already work but i'm looking for a good placement of the gui element)
+
+## Future Plans (BlueAmulet)
 * Work on the UI
 * Add a way to load previous games on your AppList folder
 * Load all DLC for a game instead of the first 64
@@ -64,4 +83,6 @@ I **highly advise** you to use the "Legit stealth mode" checking the box "NoHook
 
 ![alt text](https://i.imgur.com/zmS7oBs.gif)
 
-[**BlueAmulet**](https://github.com/BlueAmulet): This fork
+[**BlueAmulet**](https://github.com/BlueAmulet):
+
+[**JostenSyon**](https://github.com/JostenSyon): this fork

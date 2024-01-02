@@ -9,6 +9,8 @@ import core
 import subprocess
 import psutil
 import fileinput
+import tkinter as tk
+from PyQt5.QtWidgets import QFileDialog
 
 profile_manager = core.ProfileManager()
 games = []
@@ -88,6 +90,10 @@ class MainWindow(QMainWindow):
         self.main_window.settings_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
         self.main_window.settings_save_btn.clicked.connect(self.save_settings)
         self.main_window.settings_cancel_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.settings_window))
+
+        self.main_window.settings_steam_path_btn.clicked.connect(self.open_steam_path)
+        self.main_window.settings_greenluma_path_btn.clicked.connect(self.open_greenluma_path)
+        
 
     # Profile Functions
     def create_profile(self):
@@ -202,6 +208,21 @@ class MainWindow(QMainWindow):
         profile.export_profile()
 
     # Settings Functions
+        
+   # def set_steam_path(self, path):
+   #     print("metodo set_seteam_path")
+   #     self.main_window.settings_steam_path.setText(path)
+
+    def open_steam_path(self):
+        dialog = QFileDialog()
+        selected_path = dialog.getExistingDirectory()
+        self.main_window.settings_steam_path.setText(selected_path)
+
+    def open_greenluma_path(self):
+        dialog = QFileDialog()
+        selected_path = dialog.getExistingDirectory()
+        self.main_window.settings_greenluma_path.setText(selected_path)    
+        
     def save_settings(self):
         with core.get_config() as config:
             config.steam_path = self.main_window.settings_steam_path.text()
