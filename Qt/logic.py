@@ -9,7 +9,7 @@ import core
 import subprocess
 import psutil
 import fileinput
-import tkinter as tk
+from . import resources_rc
 from PyQt5.QtWidgets import QFileDialog
 
 profile_manager = core.ProfileManager()
@@ -25,8 +25,12 @@ class MainWindow(QMainWindow):
         self.connect_components()
         self.search_thread = SearchThread("")
 
+
+
     def setup(self):
-        self.setWindowIcon(QIcon("icon.ico"))
+       
+        self.setWindowIcon(QIcon(":/images/OIG2.png"))
+        #self.setWindowIcon(QIcon("logo.png"))
 
         # Hide Other Windows
         self.main_window.profile_create_window.setHidden(True)
