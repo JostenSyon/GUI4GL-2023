@@ -75,10 +75,12 @@ class MainWindow(QMainWindow):
 
         # Steam Path
         self.main_window.save_steam_path.clicked.connect(self.set_steam_path)
+        self.main_window.steam_path_btn.clicked.connect(self.steam_path_by_browser)
         self.main_window.cancel_steam_path_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.set_steam_path_window))
 
         # GreenLuma Path
         self.main_window.save_greenluma_path.clicked.connect(self.set_greenluma_path)
+        self.main_window.greenluma_path_btn.clicked.connect(self.greenluma_path_by_browser)
         self.main_window.cancel_greenluma_path_btn.clicked.connect(lambda: self.toggle_widget(self.main_window.set_greenluma_path_window))
 
         # Search Area
@@ -213,10 +215,11 @@ class MainWindow(QMainWindow):
 
     # Settings Functions
         
-   # def set_steam_path(self, path):
-   #     print("metodo set_seteam_path")
-   #     self.main_window.settings_steam_path.setText(path)
-
+    #def open_path():
+    #    dialog = QFileDialog()
+    #    selected_path = dialog.getExistingDirectory()
+    #    return selected_path 
+        
     def open_steam_path(self):
         dialog = QFileDialog()
         selected_path = dialog.getExistingDirectory()
@@ -394,6 +397,11 @@ class MainWindow(QMainWindow):
             config.manager_msg = True
         self.hide_popup()
 
+    def steam_path_by_browser(self):
+        dialog = QFileDialog()
+        selected_path = dialog.getExistingDirectory()
+        self.main_window.steam_path.setText(selected_path)
+
     def set_steam_path(self):
         path = self.main_window.steam_path.text()
         if not path == "":
@@ -420,6 +428,11 @@ class MainWindow(QMainWindow):
             return
 
         self.toggle_widget(self.main_window.set_steam_path_window)
+
+    def greenluma_path_by_browser(self):
+        dialog = QFileDialog()
+        selected_path = dialog.getExistingDirectory()
+        self.main_window.greenluma_path.setText(selected_path)
 
     def set_greenluma_path(self):
         path = self.main_window.greenluma_path.text()

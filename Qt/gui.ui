@@ -88,404 +88,14 @@ QAbstractItemView::item:selected{
 }
 </string>
    </property>
-   <widget class="QWidget" name="profile_create_window" native="true">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>170</y>
-      <width>471</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid white</string>
-    </property>
-    <widget class="QLineEdit" name="profile_name">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>50</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-     </property>
-     <property name="placeholderText">
-      <string>Profile Name</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="create_profile_btn">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Create</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_profile_btn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_profile_name">
-     <property name="geometry">
-      <rect>
-       <x>32</x>
-       <y>19</y>
-       <width>130</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>Profile Name:</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="set_steam_path_window" native="true">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>340</y>
-      <width>471</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid white</string>
-    </property>
-    <widget class="QPushButton" name="save_steam_path">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Save</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_steam_path">
-     <property name="geometry">
-      <rect>
-       <x>32</x>
-       <y>19</y>
-       <width>130</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>Steam Path</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_steam_path_btn">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="steam_path">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>47</y>
-       <width>421</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-     </property>
-     <property name="placeholderText">
-      <string>Path</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_steam_error">
-     <property name="geometry">
-      <rect>
-       <x>32</x>
-       <y>81</y>
-       <width>405</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="set_greenluma_path_window" native="true">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>471</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid white</string>
-    </property>
-    <widget class="QPushButton" name="save_greenluma_path">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Save</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_greenluma_path">
-     <property name="geometry">
-      <rect>
-       <x>32</x>
-       <y>19</y>
-       <width>130</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>GreenLuma Path</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancel_greenluma_path_btn">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="greenluma_path">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>47</y>
-       <width>421</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-     </property>
-     <property name="placeholderText">
-      <string>Path</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_greenluma_error">
-     <property name="geometry">
-      <rect>
-       <x>32</x>
-       <y>81</y>
-       <width>405</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="generic_popup" native="true">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>10</y>
-      <width>531</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border: 1px solid white</string>
-    </property>
-    <widget class="QPushButton" name="popup_btn1">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Ok</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="popup_btn2">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>110</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="popup_text">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>491</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border: 0px</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
    <widget class="QWidget" name="closing_steam" native="true">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>190</y>
+      <x>240</x>
+      <y>240</y>
       <width>621</width>
       <height>181</height>
      </rect>
@@ -496,7 +106,7 @@ color: rgb(6, 11, 8);</string>
     <widget class="QLabel" name="label_close_steam">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>50</x>
        <y>30</y>
        <width>521</width>
        <height>121</height>
@@ -1023,273 +633,1186 @@ color: rgb(6, 11, 8);</string>
       </size>
      </property>
     </widget>
-    <widget class="QWidget" name="settings_window" native="true">
+   </widget>
+   <widget class="QWidget" name="profile_create_window" native="true">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>471</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white</string>
+    </property>
+    <widget class="QLineEdit" name="profile_name">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>411</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Profile Name</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="create_profile_btn">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Create</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_profile_btn">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_profile_name">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>19</y>
+       <width>130</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>Profile Name:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="set_greenluma_path_window" native="true">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>467</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white</string>
+    </property>
+    <widget class="QPushButton" name="save_greenluma_path">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_greenluma_path">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>19</y>
+       <width>130</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>GreenLuma Path</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_greenluma_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="greenluma_path">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>47</y>
+       <width>321</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Path</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_greenluma_error">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>81</y>
+       <width>405</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="greenluma_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>47</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Open</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="set_steam_path_window" native="true">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>467</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white</string>
+    </property>
+    <widget class="QPushButton" name="save_steam_path">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_steam_path">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>19</y>
+       <width>130</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>Steam Path</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancel_steam_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="steam_path">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>47</y>
+       <width>321</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Path</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_steam_error">
+     <property name="geometry">
+      <rect>
+       <x>32</x>
+       <y>81</y>
+       <width>405</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="steam_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>47</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="text">
+      <string>Open</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="generic_popup" native="true">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>270</y>
+      <width>531</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white</string>
+    </property>
+    <widget class="QPushButton" name="popup_btn1">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Ok</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="popup_btn2">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>110</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="popup_text">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>491</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="settings_window" native="true">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>190</y>
+      <width>660</width>
+      <height>280</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="WindowText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="ButtonText">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>18</red>
+          <green>18</green>
+          <blue>18</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 1px solid white</string>
+    </property>
+    <widget class="QPushButton" name="settings_save_btn">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>230</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="settings_cancel_btn">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>230</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settings_label_steam">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>45</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Consolas</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>Steam Path:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="update_checkbox">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>190</y>
+       <width>231</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Enable Automatic Updates</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: solid 0px</string>
+     </property>
+     <property name="text">
+      <string>Check For Updates On Startup</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="settings_steam_path">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>74</y>
+       <width>481</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Path</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settings_label_greenluma">
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>115</y>
+       <width>167</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Consolas</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>GreenLuma Path:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="settings_greenluma_path">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>144</y>
+       <width>481</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">width: 100%;
+font: 10pt &quot;Consolas&quot;;
+border-radius: 15px;
+border: 1px solid #ffffff;
+padding: 2px 2px 3px 10px;
+background-color: rgb(255, 255, 255);
+color: rgb(6, 11, 8);</string>
+     </property>
+     <property name="placeholderText">
+      <string>Path</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="settings_steam_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>74</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="WindowText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Text">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="ButtonText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>232</red>
+           <green>232</green>
+           <blue>232</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>18</red>
+           <green>18</green>
+           <blue>18</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="text">
+      <string>Open Path</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="settings_greenluma_path_btn">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>144</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Open Path</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settings_label_main">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>220</y>
-       <width>660</width>
-       <height>280</height>
+       <x>10</x>
+       <y>10</y>
+       <width>621</width>
+       <height>31</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border: 1px solid white</string>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
-     <widget class="QPushButton" name="settings_save_btn">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>230</y>
-        <width>150</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string>Save</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="settings_cancel_btn">
-      <property name="geometry">
-       <rect>
-        <x>400</x>
-        <y>230</y>
-        <width>150</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="cursor">
-       <cursorShape>PointingHandCursor</cursorShape>
-      </property>
-      <property name="text">
-       <string>Cancel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="settings_label_steam">
-      <property name="geometry">
-       <rect>
-        <x>25</x>
-        <y>45</y>
-        <width>131</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Consolas</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-        <kerning>true</kerning>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 0px</string>
-      </property>
-      <property name="text">
-       <string>Steam Path:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="update_checkbox">
-      <property name="geometry">
-       <rect>
-        <x>22</x>
-        <y>190</y>
-        <width>231</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-       </font>
-      </property>
-      <property name="toolTip">
-       <string>Enable Automatic Updates</string>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: solid 0px</string>
-      </property>
-      <property name="text">
-       <string>Check For Updates On Startup</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="settings_steam_path">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>74</y>
-        <width>481</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-      </property>
-      <property name="placeholderText">
-       <string>Path</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="settings_label_greenluma">
-      <property name="geometry">
-       <rect>
-        <x>25</x>
-        <y>115</y>
-        <width>167</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Consolas</family>
-        <pointsize>12</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-        <kerning>true</kerning>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 0px</string>
-      </property>
-      <property name="text">
-       <string>GreenLuma Path:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="settings_greenluma_path">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>144</y>
-        <width>481</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">width: 100%;
-font: 10pt &quot;Consolas&quot;;
-border-radius: 15px;
-border: 1px solid #ffffff;
-padding: 2px 2px 3px 10px;
-background-color: rgb(255, 255, 255);
-color: rgb(6, 11, 8);</string>
-      </property>
-      <property name="placeholderText">
-       <string>Path</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="settings_steam_path_btn">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>80</y>
-        <width>121</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Open Path</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="settings_greenluma_path_btn">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>150</y>
-        <width>121</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Open Path</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="settings_label_main">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>621</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: 0px</string>
-      </property>
-      <property name="text">
-       <string>Settings</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
+     <property name="styleSheet">
+      <string notr="true">border: 0px</string>
+     </property>
+     <property name="text">
+      <string>Settings</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
-    <zorder>settings_window</zorder>
-    <zorder>profile_selector</zorder>
-    <zorder>label_profile</zorder>
-    <zorder>remove_game</zorder>
-    <zorder>compatibility_mode_checkbox</zorder>
-    <zorder>search_result</zorder>
-    <zorder>create_profile</zorder>
-    <zorder>label_main</zorder>
-    <zorder>run_GreenLuma_btn</zorder>
-    <zorder>add_to_profile</zorder>
-    <zorder>games_list</zorder>
-    <zorder>generate_btn</zorder>
-    <zorder>label_games_list</zorder>
-    <zorder>delete_profile</zorder>
-    <zorder>game_search_text</zorder>
-    <zorder>no_hook_checkbox</zorder>
-    <zorder>version_label</zorder>
-    <zorder>search_btn</zorder>
-    <zorder>settings_btn</zorder>
-    <zorder>searching_frame</zorder>
    </widget>
    <zorder>profile_create_window</zorder>
-   <zorder>set_steam_path_window</zorder>
-   <zorder>set_greenluma_path_window</zorder>
    <zorder>closing_steam</zorder>
-   <zorder>generic_popup</zorder>
    <zorder>main_panel</zorder>
+   <zorder>settings_window</zorder>
+   <zorder>generic_popup</zorder>
+   <zorder>set_greenluma_path_window</zorder>
+   <zorder>set_steam_path_window</zorder>
   </widget>
  </widget>
  <resources>
