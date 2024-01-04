@@ -15,18 +15,31 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1120, 747)
-        MainWindow.setStyleSheet("background-color: rgb(18, 18, 18);")
+        MainWindow.setStyleSheet("background-color:rgb(138, 178, 207);")
         MainWindow.setAnimated(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("QWidget {\n"
+        self.centralwidget.setStyleSheet("\n"
+"QWidget {\n"
 "    color: rgb(255, 255, 255);\n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"    color:rgb(55, 57, 60);\n"
+"    font: 12pt \"Segoe UI Variable\";\n"
+"}\n"
+"\n"
+"QCheckBox{\n"
+"     color:rgb(55, 57, 60);\n"
 "}\n"
 "\n"
 "QComboBox{\n"
 "    font: 11pt \"MS Shell Dlg 2\";\n"
-"    color: rgb(179, 179, 179);\n"
+"    color: rgb(55, 57, 60);\n"
 "    border: 1px solid rgb(130, 135, 144);\n"
-"    background-color: rgb(28, 28, 28); \n"
+"    border-radius: 4px;\n"
+"    background-color: rgb(231, 240, 246)\n"
+"    \n"
 "}\n"
 "\n"
 "QComboBox::drop-down{\n"
@@ -43,17 +56,27 @@ class Ui_MainWindow(object):
 "\n"
 "QComboBox QAbstractItemView {\n"
 "     margin: 2px 1px 2px 1px;\n"
-"    color: rgb(255, 255, 255);\n"
-"     background-color: rgb(28, 28, 28);\n"
-"    selection-background-color: rgb(40, 40, 40);\n"
-"     border: 1px solid rgb(28, 28, 28);\n"
+"    color:rgb(55, 57, 60);\n"
+"     background-color: rgb(231, 240, 246);\n"
+"    selection-background-color:rgb(170, 220, 255);\n"
+"     border: 0px solid rgb(28, 28, 28);\n"
+"}\n"
+"\n"
+"QLineEdit{\n"
+"    width: 100%;    \n"
+"    font: 10pt \"Segoe UI Variable\";\n"
+"    border-radius: 4px;\n"
+"    border: 1px solid #ffffff;\n"
+"    padding: 2px 2px 3px 10px;\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(6, 11, 8);\n"
 "}\n"
 "\n"
 "QPushButton {\n"
 "    color:rgb(232, 232, 232);\n"
 "    border-radius: 4px;\n"
-"    border: 1px solid rgb(179, 179, 179);\n"
-"    font: 75 11pt \"Consolas\";\n"
+"    font: 75 11pt \"Segoe UI Variable\";\n"
+"    background-color:rgb(0, 92, 179);\n"
 "}\n"
 "\n"
 "QPushButton:hover#settings_btn {\n"
@@ -67,35 +90,175 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:pressed {\n"
 "    border-style: inset;\n"
-"    border: 2px solid rgb(85, 85, 85);\n"
+"    border: 1px solid rgb(55, 57, 60);\n"
 "}\n"
 "\n"
+"/*search table header*/\n"
 "QHeaderView::section {\n"
-"    background-color: rgb(29, 29, 29);\n"
-"    border: 1px solid rgb(245, 245, 245)\n"
+"    background-color:rgb(231, 240, 246);\n"
+"    border: 0px solid rgb(245, 245, 245);\n"
+"    padding: 3px;\n"
 "}\n"
 "\n"
 "QAbstractItemView {\n"
-"    padding: 2px\n"
+"    padding: 2px;\n"
+"    color: black;\n"
 "}\n"
 "\n"
 "QAbstractItemView::item:selected{ \n"
 "    background-color: white;\n"
 "    color: black\n"
 "}\n"
+"\n"
+"QFrame{ \n"
+"    border-radius: 4px;\n"
+"}\n"
+"\n"
+"#label_main{\n"
+"    font: 63 14pt \"Segoe UI Variable Display Semib\";\n"
+"}\n"
+"\n"
+"#game_search_text{\n"
+"     width: 100%;\n"
+"    font: 10pt \"Segoe UI Variable\";\n"
+"    border: 1px solid #ffffff;\n"
+"    padding: 2px 2px 3px 10px;\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    color: rgb(6, 11, 8);\n"
+"}\n"
+"\n"
+"#games_list{\n"
+"    background-color:rgb(231, 240, 246);\n"
+"    border-radius: 8px;\n"
+"}\n"
+"\n"
+"#search_result{\n"
+"    background-color:rgb(231, 240, 246);\n"
+"    border-radius: 8px;\n"
+"}\n"
+"\n"
+"#settings_btn{\n"
+"    background-color: transparent;\n"
+"}\n"
+"\n"
+"#generate_btn {\n"
+"    background-color:rgb(122, 234, 176);\n"
+"    color: rgb(6, 11, 8);\n"
+"}\n"
+"\n"
+"#generate_btn:hover {\n"
+"    color: rgb(24, 24, 24);\n"
+"    background-color:rgb(225, 247, 246);\n"
+"}\n"
+"\n"
+"#run_GreenLuma_btn {\n"
+"    background-color: rgb(0, 116, 217);\n"
+"    color: rgb(6, 11, 8);\n"
+"}\n"
+"\n"
+"#run_GreenLuma_btn:hover {\n"
+"    color: rgb(24, 24, 24);\n"
+"    background-color: rgb(135, 152, 177);\n"
+"}\n"
+"\n"
+"#search_btn{\n"
+"    background-color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"\n"
+"QWidget:item#profile_selector{\n"
+"     background: rgb(255, 0, 0)\n"
+"}\n"
+"\n"
+"QWidget:item:checked#profile_selector {\n"
+"     font-weight: bold;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"/*  SCROLLBAR */\n"
+" QScrollBar:vertical ,  QScrollBar:horizontal{\n"
+"    border: none;\n"
+"    background: rgb(240, 249, 255);\n"
+"    width: 14px;\n"
+"    border-radius: 0px;\n"
+" }\n"
+" \n"
+"\n"
+"/*  HANDLE BAR  */\n"
+"QScrollBar::handle:vertical{    \n"
+"    background-color:rgb(0, 92, 179);\n"
+"    min-height: 30px;\n"
+"    border-radius: 7px;\n"
+"    border: 4px solid rgba(0, 0, 0, 0);\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{    \n"
+"    background-color:rgb(0, 102, 198);\n"
+"     border: 6px solid rgba(0, 0, 0, 0);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {    \n"
+"    background-color: rgb(0, 71, 138);\n"
+"}\n"
+"\n"
+"/* BTN TOP - SCROLLBAR */\n"
+"QScrollBar::sub-line:vertical {\n"
+"    border: none;\n"
+"    background-color:rgb(240, 249, 255);\n"
+"    height: 0px;\n"
+"    border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"    subcontrol-position: top;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"QScrollBar::sub-line:vertical:hover {    \n"
+"    background-color: rgb(255, 0, 127);\n"
+"}\n"
+"QScrollBar::sub-line:vertical:pressed {    \n"
+"    background-color: rgb(185, 0, 92);\n"
+"}\n"
+"\n"
+"/* BTN BOTTOM - SCROLLBAR */\n"
+"QScrollBar::add-line:vertical {\n"
+"    border: none;\n"
+"    background-color: rgb(240, 249, 255);\n"
+"    height: 0px;\n"
+"    border-bottom-left-radius: 7px;\n"
+"    border-bottom-right-radius: 7px;\n"
+"    subcontrol-position: bottom;\n"
+"    subcontrol-origin: margin;\n"
+"}\n"
+"QScrollBar::add-line:vertical:hover {    \n"
+"    background-color: rgb(255, 0, 127);\n"
+"}\n"
+"QScrollBar::add-line:vertical:pressed {    \n"
+"    background-color: rgb(185, 0, 92);\n"
+"}\n"
+"\n"
+"/* RESET ARROW */\n"
+"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+"    background: none;\n"
+"}\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"}\n"
 "")
         self.centralwidget.setObjectName("centralwidget")
         self.closing_steam = QtWidgets.QWidget(self.centralwidget)
         self.closing_steam.setEnabled(False)
         self.closing_steam.setGeometry(QtCore.QRect(240, 240, 621, 181))
-        self.closing_steam.setStyleSheet("border: 1px solid white")
+        self.closing_steam.setStyleSheet("")
         self.closing_steam.setObjectName("closing_steam")
         self.label_close_steam = QtWidgets.QLabel(self.closing_steam)
         self.label_close_steam.setGeometry(QtCore.QRect(50, 30, 521, 121))
         font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_close_steam.setFont(font)
         self.label_close_steam.setStyleSheet("border: 0px")
         self.label_close_steam.setAlignment(QtCore.Qt.AlignCenter)
@@ -103,25 +266,76 @@ class Ui_MainWindow(object):
         self.main_panel = QtWidgets.QWidget(self.centralwidget)
         self.main_panel.setEnabled(True)
         self.main_panel.setGeometry(QtCore.QRect(0, 0, 1121, 751))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        self.main_panel.setPalette(palette)
+        self.main_panel.setStyleSheet("")
         self.main_panel.setObjectName("main_panel")
         self.profile_selector = QtWidgets.QComboBox(self.main_panel)
         self.profile_selector.setGeometry(QtCore.QRect(825, 45, 280, 31))
         self.profile_selector.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.profile_selector.setFocusPolicy(QtCore.Qt.NoFocus)
         self.profile_selector.setAcceptDrops(False)
-        self.profile_selector.setStyleSheet("QWidget:item{\n"
-"     background: rgb(255, 0, 0)\n"
-"}\n"
-"QWidget:item:checked {\n"
-"     font-weight: bold;\n"
-"}")
+        self.profile_selector.setStyleSheet("")
         self.profile_selector.setIconSize(QtCore.QSize(18, 18))
         self.profile_selector.setFrame(False)
         self.profile_selector.setObjectName("profile_selector")
         self.label_profile = QtWidgets.QLabel(self.main_panel)
         self.label_profile.setGeometry(QtCore.QRect(825, 15, 120, 21))
-        self.label_profile.setStyleSheet("background: transparent;\n"
-"font: 75 11pt \"Consolas\";")
+        self.label_profile.setStyleSheet("")
         self.label_profile.setObjectName("label_profile")
         self.remove_game = QtWidgets.QPushButton(self.main_panel)
         self.remove_game.setGeometry(QtCore.QRect(825, 605, 120, 31))
@@ -135,11 +349,13 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.compatibility_mode_checkbox.setFont(font)
+        self.compatibility_mode_checkbox.setStyleSheet("")
         self.compatibility_mode_checkbox.setChecked(False)
         self.compatibility_mode_checkbox.setObjectName("compatibility_mode_checkbox")
         self.search_result = QtWidgets.QTableView(self.main_panel)
-        self.search_result.setGeometry(QtCore.QRect(15, 105, 790, 491))
-        self.search_result.setStyleSheet("background-color: rgb(28, 28, 28);")
+        self.search_result.setGeometry(QtCore.QRect(15, 135, 790, 461))
+        self.search_result.setStyleSheet("")
+        self.search_result.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.search_result.setDragEnabled(True)
         self.search_result.setDragDropMode(QtWidgets.QAbstractItemView.DragOnly)
         self.search_result.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
@@ -158,16 +374,20 @@ class Ui_MainWindow(object):
         self.searching_frame = QtWidgets.QFrame(self.main_panel)
         self.searching_frame.setEnabled(False)
         self.searching_frame.setGeometry(QtCore.QRect(235, 295, 330, 111))
+        self.searching_frame.setStyleSheet("")
         self.searching_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.searching_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.searching_frame.setObjectName("searching_frame")
         self.label_searching = QtWidgets.QLabel(self.searching_frame)
         self.label_searching.setGeometry(QtCore.QRect(30, 20, 271, 71))
         font = QtGui.QFont()
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_searching.setFont(font)
+        self.label_searching.setStyleSheet("")
         self.label_searching.setAlignment(QtCore.Qt.AlignCenter)
         self.label_searching.setObjectName("label_searching")
         self.create_profile = QtWidgets.QPushButton(self.main_panel)
@@ -177,32 +397,81 @@ class Ui_MainWindow(object):
         self.create_profile.setObjectName("create_profile")
         self.label_main = QtWidgets.QLabel(self.main_panel)
         self.label_main.setGeometry(QtCore.QRect(225, 0, 360, 41))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 57, 60))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        self.label_main.setPalette(palette)
         font = QtGui.QFont()
-        font.setPointSize(13)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setFamily("Segoe UI Variable Display Semib")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
         self.label_main.setFont(font)
+        self.label_main.setStyleSheet("")
         self.label_main.setAlignment(QtCore.Qt.AlignCenter)
         self.label_main.setObjectName("label_main")
         self.run_GreenLuma_btn = QtWidgets.QPushButton(self.main_panel)
-        self.run_GreenLuma_btn.setGeometry(QtCore.QRect(525, 665, 220, 51))
+        self.run_GreenLuma_btn.setGeometry(QtCore.QRect(520, 665, 220, 51))
         self.run_GreenLuma_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.run_GreenLuma_btn.setStyleSheet("#run_GreenLuma_btn {\n"
-"    background-color: rgb(0, 116, 217);\n"
-"    color: rgb(6, 11, 8);\n"
-"}\n"
-"\n"
-"#run_GreenLuma_btn:hover {\n"
-"    color: rgb(24, 24, 24);\n"
-"    background-color: rgb(245, 245, 245);\n"
-"}")
+        self.run_GreenLuma_btn.setStyleSheet("")
         self.run_GreenLuma_btn.setObjectName("run_GreenLuma_btn")
         self.search_btn = QtWidgets.QPushButton(self.main_panel)
-        self.search_btn.setGeometry(QtCore.QRect(745, 47, 50, 26))
+        self.search_btn.setGeometry(QtCore.QRect(745, 87, 50, 26))
         self.search_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.search_btn.setStyleSheet("background-color: rgb(255, 255, 255);\n"
-"border-radius: 4px;\n"
-"border: 0px")
+        self.search_btn.setStyleSheet("")
         self.search_btn.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/images/search-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -216,27 +485,19 @@ class Ui_MainWindow(object):
         self.add_to_profile.setObjectName("add_to_profile")
         self.games_list = QtWidgets.QListWidget(self.main_panel)
         self.games_list.setGeometry(QtCore.QRect(825, 155, 280, 441))
-        self.games_list.setStyleSheet("background-color: rgb(28, 28, 28);")
+        self.games_list.setStyleSheet("")
+        self.games_list.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.games_list.setDragDropMode(QtWidgets.QAbstractItemView.DropOnly)
         self.games_list.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.games_list.setObjectName("games_list")
         self.generate_btn = QtWidgets.QPushButton(self.main_panel)
         self.generate_btn.setGeometry(QtCore.QRect(285, 665, 220, 51))
         self.generate_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.generate_btn.setStyleSheet("#generate_btn {\n"
-"    background-color: rgb(29, 185, 84);\n"
-"    color: rgb(6, 11, 8);\n"
-"}\n"
-"\n"
-"#generate_btn:hover {\n"
-"    color: rgb(24, 24, 24);\n"
-"    background-color: rgb(245, 245, 245);\n"
-"}")
+        self.generate_btn.setStyleSheet("")
         self.generate_btn.setObjectName("generate_btn")
         self.label_games_list = QtWidgets.QLabel(self.main_panel)
         self.label_games_list.setGeometry(QtCore.QRect(825, 125, 120, 21))
-        self.label_games_list.setStyleSheet("background: transparent;\n"
-"font: 75 11pt \"Consolas\";")
+        self.label_games_list.setStyleSheet("")
         self.label_games_list.setObjectName("label_games_list")
         self.delete_profile = QtWidgets.QPushButton(self.main_panel)
         self.delete_profile.setGeometry(QtCore.QRect(965, 85, 140, 31))
@@ -244,14 +505,8 @@ class Ui_MainWindow(object):
         self.delete_profile.setStyleSheet("")
         self.delete_profile.setObjectName("delete_profile")
         self.game_search_text = QtWidgets.QLineEdit(self.main_panel)
-        self.game_search_text.setGeometry(QtCore.QRect(15, 45, 790, 31))
-        self.game_search_text.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
+        self.game_search_text.setGeometry(QtCore.QRect(15, 85, 790, 31))
+        self.game_search_text.setStyleSheet("")
         self.game_search_text.setText("")
         self.game_search_text.setObjectName("game_search_text")
         self.no_hook_checkbox = QtWidgets.QCheckBox(self.main_panel)
@@ -259,35 +514,72 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.no_hook_checkbox.setFont(font)
+        self.no_hook_checkbox.setStyleSheet("")
         self.no_hook_checkbox.setChecked(True)
         self.no_hook_checkbox.setObjectName("no_hook_checkbox")
         self.version_label = QtWidgets.QLabel(self.main_panel)
-        self.version_label.setGeometry(QtCore.QRect(1077, 728, 41, 16))
+        self.version_label.setGeometry(QtCore.QRect(1070, 730, 51, 16))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.version_label.setFont(font)
         self.version_label.setObjectName("version_label")
         self.settings_btn = QtWidgets.QPushButton(self.main_panel)
         self.settings_btn.setGeometry(QtCore.QRect(4, 700, 51, 41))
         self.settings_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.settings_btn.setStyleSheet("border: solid 0px;")
+        self.settings_btn.setStyleSheet("")
         self.settings_btn.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/images/settings-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.settings_btn.setIcon(icon1)
         self.settings_btn.setIconSize(QtCore.QSize(28, 28))
         self.settings_btn.setObjectName("settings_btn")
+        self.manual_insert_id = QtWidgets.QLineEdit(self.main_panel)
+        self.manual_insert_id.setGeometry(QtCore.QRect(15, 45, 126, 31))
+        self.manual_insert_id.setText("")
+        self.manual_insert_id.setObjectName("manual_insert_id")
+        self.manual_insert_name = QtWidgets.QLineEdit(self.main_panel)
+        self.manual_insert_name.setGeometry(QtCore.QRect(150, 45, 490, 31))
+        self.manual_insert_name.setText("")
+        self.manual_insert_name.setObjectName("manual_insert_name")
+        self.manual_insert_btn = QtWidgets.QPushButton(self.main_panel)
+        self.manual_insert_btn.setGeometry(QtCore.QRect(650, 45, 151, 31))
+        self.manual_insert_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.manual_insert_btn.setStyleSheet("")
+        self.manual_insert_btn.setObjectName("manual_insert_btn")
+        self.profile_selector.raise_()
+        self.label_profile.raise_()
+        self.remove_game.raise_()
+        self.compatibility_mode_checkbox.raise_()
+        self.search_result.raise_()
+        self.searching_frame.raise_()
+        self.create_profile.raise_()
+        self.label_main.raise_()
+        self.run_GreenLuma_btn.raise_()
+        self.add_to_profile.raise_()
+        self.games_list.raise_()
+        self.generate_btn.raise_()
+        self.label_games_list.raise_()
+        self.delete_profile.raise_()
+        self.game_search_text.raise_()
+        self.no_hook_checkbox.raise_()
+        self.version_label.raise_()
+        self.settings_btn.raise_()
+        self.search_btn.raise_()
+        self.manual_insert_id.raise_()
+        self.manual_insert_name.raise_()
+        self.manual_insert_btn.raise_()
         self.profile_create_window = QtWidgets.QWidget(self.centralwidget)
         self.profile_create_window.setEnabled(False)
         self.profile_create_window.setGeometry(QtCore.QRect(290, 270, 471, 161))
-        self.profile_create_window.setStyleSheet("border: 1px solid white")
+        self.profile_create_window.setStyleSheet("")
         self.profile_create_window.setObjectName("profile_create_window")
         self.profile_name = QtWidgets.QLineEdit(self.profile_create_window)
         self.profile_name.setGeometry(QtCore.QRect(30, 50, 411, 31))
-        self.profile_name.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
+        self.profile_name.setStyleSheet("")
         self.profile_name.setObjectName("profile_name")
         self.create_profile_btn = QtWidgets.QPushButton(self.profile_create_window)
         self.create_profile_btn.setGeometry(QtCore.QRect(30, 110, 151, 31))
@@ -300,14 +592,18 @@ class Ui_MainWindow(object):
         self.label_profile_name = QtWidgets.QLabel(self.profile_create_window)
         self.label_profile_name.setGeometry(QtCore.QRect(32, 19, 130, 21))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_profile_name.setFont(font)
         self.label_profile_name.setStyleSheet("border: 0px")
         self.label_profile_name.setObjectName("label_profile_name")
         self.set_greenluma_path_window = QtWidgets.QWidget(self.centralwidget)
         self.set_greenluma_path_window.setEnabled(False)
         self.set_greenluma_path_window.setGeometry(QtCore.QRect(290, 270, 467, 160))
-        self.set_greenluma_path_window.setStyleSheet("border: 1px solid white")
+        self.set_greenluma_path_window.setStyleSheet("")
         self.set_greenluma_path_window.setObjectName("set_greenluma_path_window")
         self.save_greenluma_path = QtWidgets.QPushButton(self.set_greenluma_path_window)
         self.save_greenluma_path.setGeometry(QtCore.QRect(50, 110, 151, 31))
@@ -316,9 +612,12 @@ class Ui_MainWindow(object):
         self.label_greenluma_path = QtWidgets.QLabel(self.set_greenluma_path_window)
         self.label_greenluma_path.setGeometry(QtCore.QRect(32, 19, 130, 21))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_greenluma_path.setFont(font)
-        self.label_greenluma_path.setStyleSheet("border: 0px")
         self.label_greenluma_path.setObjectName("label_greenluma_path")
         self.cancel_greenluma_path_btn = QtWidgets.QPushButton(self.set_greenluma_path_window)
         self.cancel_greenluma_path_btn.setGeometry(QtCore.QRect(270, 110, 151, 31))
@@ -326,20 +625,16 @@ class Ui_MainWindow(object):
         self.cancel_greenluma_path_btn.setObjectName("cancel_greenluma_path_btn")
         self.greenluma_path = QtWidgets.QLineEdit(self.set_greenluma_path_window)
         self.greenluma_path.setGeometry(QtCore.QRect(30, 47, 321, 31))
-        self.greenluma_path.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
         self.greenluma_path.setObjectName("greenluma_path")
         self.label_greenluma_error = QtWidgets.QLabel(self.set_greenluma_path_window)
         self.label_greenluma_error.setGeometry(QtCore.QRect(32, 81, 405, 21))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_greenluma_error.setFont(font)
-        self.label_greenluma_error.setStyleSheet("border: 0px")
         self.label_greenluma_error.setText("")
         self.label_greenluma_error.setObjectName("label_greenluma_error")
         self.greenluma_path_btn = QtWidgets.QPushButton(self.set_greenluma_path_window)
@@ -348,7 +643,7 @@ class Ui_MainWindow(object):
         self.set_steam_path_window = QtWidgets.QWidget(self.centralwidget)
         self.set_steam_path_window.setEnabled(False)
         self.set_steam_path_window.setGeometry(QtCore.QRect(290, 270, 467, 160))
-        self.set_steam_path_window.setStyleSheet("border: 1px solid white")
+        self.set_steam_path_window.setStyleSheet("")
         self.set_steam_path_window.setObjectName("set_steam_path_window")
         self.save_steam_path = QtWidgets.QPushButton(self.set_steam_path_window)
         self.save_steam_path.setGeometry(QtCore.QRect(50, 110, 151, 31))
@@ -357,9 +652,12 @@ class Ui_MainWindow(object):
         self.label_steam_path = QtWidgets.QLabel(self.set_steam_path_window)
         self.label_steam_path.setGeometry(QtCore.QRect(32, 19, 130, 21))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_steam_path.setFont(font)
-        self.label_steam_path.setStyleSheet("border: 0px")
         self.label_steam_path.setObjectName("label_steam_path")
         self.cancel_steam_path_btn = QtWidgets.QPushButton(self.set_steam_path_window)
         self.cancel_steam_path_btn.setGeometry(QtCore.QRect(270, 110, 151, 31))
@@ -367,20 +665,16 @@ class Ui_MainWindow(object):
         self.cancel_steam_path_btn.setObjectName("cancel_steam_path_btn")
         self.steam_path = QtWidgets.QLineEdit(self.set_steam_path_window)
         self.steam_path.setGeometry(QtCore.QRect(30, 47, 321, 31))
-        self.steam_path.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
         self.steam_path.setObjectName("steam_path")
         self.label_steam_error = QtWidgets.QLabel(self.set_steam_path_window)
         self.label_steam_error.setGeometry(QtCore.QRect(32, 81, 405, 21))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily("Segoe UI Variable")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.label_steam_error.setFont(font)
-        self.label_steam_error.setStyleSheet("border: 0px")
         self.label_steam_error.setText("")
         self.label_steam_error.setObjectName("label_steam_error")
         self.steam_path_btn = QtWidgets.QPushButton(self.set_steam_path_window)
@@ -389,7 +683,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -398,16 +692,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -416,16 +710,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -434,10 +728,10 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         self.steam_path_btn.setPalette(palette)
@@ -445,7 +739,7 @@ class Ui_MainWindow(object):
         self.generic_popup = QtWidgets.QWidget(self.centralwidget)
         self.generic_popup.setEnabled(False)
         self.generic_popup.setGeometry(QtCore.QRect(290, 270, 531, 161))
-        self.generic_popup.setStyleSheet("border: 1px solid white")
+        self.generic_popup.setStyleSheet("")
         self.generic_popup.setObjectName("generic_popup")
         self.popup_btn1 = QtWidgets.QPushButton(self.generic_popup)
         self.popup_btn1.setGeometry(QtCore.QRect(30, 110, 151, 31))
@@ -458,7 +752,11 @@ class Ui_MainWindow(object):
         self.popup_text = QtWidgets.QLabel(self.generic_popup)
         self.popup_text.setGeometry(QtCore.QRect(20, 20, 491, 71))
         font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable")
         font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.popup_text.setFont(font)
         self.popup_text.setStyleSheet("border: 0px")
         self.popup_text.setAlignment(QtCore.Qt.AlignCenter)
@@ -471,7 +769,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -480,16 +778,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -498,16 +796,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -516,14 +814,14 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(138, 178, 207))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         self.settings_window.setPalette(palette)
-        self.settings_window.setStyleSheet("border: 1px solid white")
+        self.settings_window.setStyleSheet("")
         self.settings_window.setObjectName("settings_window")
         self.settings_save_btn = QtWidgets.QPushButton(self.settings_window)
         self.settings_save_btn.setGeometry(QtCore.QRect(110, 230, 150, 30))
@@ -536,11 +834,11 @@ class Ui_MainWindow(object):
         self.settings_label_steam = QtWidgets.QLabel(self.settings_window)
         self.settings_label_steam.setGeometry(QtCore.QRect(25, 45, 131, 21))
         font = QtGui.QFont()
-        font.setFamily("Consolas")
+        font.setFamily("Segoe UI Variable")
         font.setPointSize(12)
         font.setBold(False)
+        font.setItalic(False)
         font.setWeight(50)
-        font.setKerning(True)
         self.settings_label_steam.setFont(font)
         self.settings_label_steam.setStyleSheet("border: 0px")
         self.settings_label_steam.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -551,28 +849,20 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(10)
         self.update_checkbox.setFont(font)
-        self.update_checkbox.setStyleSheet("border: solid 0px")
         self.update_checkbox.setCheckable(True)
         self.update_checkbox.setChecked(True)
         self.update_checkbox.setObjectName("update_checkbox")
         self.settings_steam_path = QtWidgets.QLineEdit(self.settings_window)
         self.settings_steam_path.setGeometry(QtCore.QRect(20, 74, 481, 31))
-        self.settings_steam_path.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
         self.settings_steam_path.setObjectName("settings_steam_path")
         self.settings_label_greenluma = QtWidgets.QLabel(self.settings_window)
         self.settings_label_greenluma.setGeometry(QtCore.QRect(25, 115, 167, 21))
         font = QtGui.QFont()
-        font.setFamily("Consolas")
+        font.setFamily("Segoe UI Variable")
         font.setPointSize(12)
         font.setBold(False)
+        font.setItalic(False)
         font.setWeight(50)
-        font.setKerning(True)
         self.settings_label_greenluma.setFont(font)
         self.settings_label_greenluma.setStyleSheet("border: 0px")
         self.settings_label_greenluma.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -580,13 +870,6 @@ class Ui_MainWindow(object):
         self.settings_label_greenluma.setObjectName("settings_label_greenluma")
         self.settings_greenluma_path = QtWidgets.QLineEdit(self.settings_window)
         self.settings_greenluma_path.setGeometry(QtCore.QRect(20, 144, 481, 31))
-        self.settings_greenluma_path.setStyleSheet("width: 100%;\n"
-"font: 10pt \"Consolas\";\n"
-"border-radius: 15px;\n"
-"border: 1px solid #ffffff;\n"
-"padding: 2px 2px 3px 10px;\n"
-"background-color: rgb(255, 255, 255);\n"
-"color: rgb(6, 11, 8);")
         self.settings_greenluma_path.setObjectName("settings_greenluma_path")
         self.settings_steam_path_btn = QtWidgets.QPushButton(self.settings_window)
         self.settings_steam_path_btn.setGeometry(QtCore.QRect(510, 74, 121, 31))
@@ -594,7 +877,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -603,16 +886,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -621,16 +904,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
@@ -639,10 +922,10 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(232, 232, 232))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(18, 18, 18))
+        brush = QtGui.QBrush(QtGui.QColor(0, 92, 179))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         self.settings_steam_path_btn.setPalette(palette)
@@ -654,19 +937,23 @@ class Ui_MainWindow(object):
         self.settings_label_main.setEnabled(False)
         self.settings_label_main.setGeometry(QtCore.QRect(10, 10, 621, 31))
         font = QtGui.QFont()
+        font.setFamily("Segoe UI Variable")
         font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.settings_label_main.setFont(font)
         self.settings_label_main.setStyleSheet("border: 0px")
         self.settings_label_main.setAlignment(QtCore.Qt.AlignCenter)
         self.settings_label_main.setWordWrap(True)
         self.settings_label_main.setObjectName("settings_label_main")
+        self.settings_window.raise_()
+        self.set_steam_path_window.raise_()
+        self.set_greenluma_path_window.raise_()
         self.profile_create_window.raise_()
+        self.generic_popup.raise_()
         self.closing_steam.raise_()
         self.main_panel.raise_()
-        self.settings_window.raise_()
-        self.generic_popup.raise_()
-        self.set_greenluma_path_window.raise_()
-        self.set_steam_path_window.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -692,6 +979,9 @@ class Ui_MainWindow(object):
         self.game_search_text.setPlaceholderText(_translate("MainWindow", "Search Game"))
         self.no_hook_checkbox.setText(_translate("MainWindow", "Stealth mode"))
         self.version_label.setText(_translate("MainWindow", "v0.0.0"))
+        self.manual_insert_id.setPlaceholderText(_translate("MainWindow", "game/dlc ID"))
+        self.manual_insert_name.setPlaceholderText(_translate("MainWindow", "game/dlc name"))
+        self.manual_insert_btn.setText(_translate("MainWindow", "Add Manually"))
         self.profile_name.setPlaceholderText(_translate("MainWindow", "Profile Name"))
         self.create_profile_btn.setText(_translate("MainWindow", "Create"))
         self.cancel_profile_btn.setText(_translate("MainWindow", "Cancel"))
