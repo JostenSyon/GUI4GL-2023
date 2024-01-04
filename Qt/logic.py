@@ -6,11 +6,13 @@ from shutil import copyfile
 from cloudscraper.exceptions import CloudflareException, CaptchaException
 import os
 import core
+from core import Game 
 import subprocess
 import psutil
 import fileinput
 from . import resources_rc
 from PyQt5.QtWidgets import QFileDialog
+
 
 profile_manager = core.ProfileManager()
 games = []
@@ -87,6 +89,12 @@ class MainWindow(QMainWindow):
         self.main_window.search_btn.clicked.connect(self.search_games)
         self.main_window.game_search_text.returnPressed.connect(self.search_games)
         self.main_window.add_to_profile.clicked.connect(self.add_selected)
+
+        # Manual Add
+
+        self.main_window.manual_insert_name.returnPressed.connect(self.add_manual)
+        self.main_window.manual_insert_btn.clicked.connect(self.add_manual)
+
 
         # Main Buttons
         self.main_window.generate_btn.clicked.connect(lambda: self.generate_app_list())
@@ -184,6 +192,21 @@ class MainWindow(QMainWindow):
         list_.clear()
         for item in data:
             list_.addItem(item.name)
+    # Manual add Function
+    def add_manual(self): 
+
+        item_id = self.main_window.manual_insert_id.text()
+        item_name = self.main_window.manual_insert_name.text()
+        if item_id == "" or item_name == "":
+            return
+        
+        profile = profile_manager.profiles[self.main_window.profile_selector.currentText()]
+        game = Game(item_id , item_name, 'manual_add')
+        profile.add_game(game)
+        self.show_profile_games(profile)
+        profile.export_profile()
+        self.main_window.manual_insert_id.clear()
+        self.main_window.manual_insert_name.clear()
 
     # Search Table and Profile Interaction Functions
     def add_selected(self):

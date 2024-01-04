@@ -47,6 +47,7 @@ class Game:
     def from_table_list(list):
         games = []
         for i in range(int(len(list) / 3)):
+            print(type(list[i * 3]))
             games.append(Game(list[i * 3], list[i * 3 + 1], list[i * 3 + 2]))
 
         return games
