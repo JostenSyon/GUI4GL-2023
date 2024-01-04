@@ -1,30 +1,33 @@
 # Gui4GL-2023 <--> GreenLuma 2023 Manager
-An app to manage the Steam unlocker "GreenLuma 2023" AppList folder 
+An application to manage the AppList folder of the Steam unlocker "GreenLuma 2023".
+
+This is a fork of BlueAmulet's GreenLuma Reborn Manager. 
+Thanks also to ImaniiTy, the original developer of the GreenLuma Reborn Manager.
+
+
+## Features by JostenSyon
+- Folder Browser Dialog for error-proof path selection (Steam and GreenLuma)
+- New Windows 11 style theme
+- Manual insert of Game/DLC by ID
+
+## Features
+- Easily manage profiles for various games (useful to circumvent the 168 ID limit)
+- Add/Remove one or more games at once
+- Add/Remove profiles
+- Search for any game you want to add directly from the app
+- Generate the AppList, close Steam, and run GreenLuma 2023 with one click
+- All profile info is in JSON files, so you can easily share with anyone
+- It will detect whether Steam is open or not and close it if necessary
+- All the profiles info are in JSON files so you can easily share with anyone
+  - The profiles are saved on: C:\Users\%userprofile%\AppData\Local\GLR_Manager\Profiles
+- Handles portable GL2023 (not in the Steam folder) (BlueAmulet)
+- Improved searching (BlueAmulet)
+- Enhanced error handling (BlueAmulet)
+- Other bug fixes and improvements (BlueAmulet)
 
 
 
-This is a fork of BlueAmulet GreenLuma Reborn Manager to better support GL2023 
-Thanks also to ImaniiTy, the original dev of the GreenLuma Reborn Manager
-
-
-JostenSyon feauture:
-Folder Browser Dialog for error proof path (steam and GreenLuma)
-...
-more feauture soon
-
-
-BlueAmulet feauture:
-Handles portable GL2023 (not in Steam folder)  
-Better searching  
-Improved error handling  
-Other bugfixes and improvements
-
-
-
-
-## BlueAmulet release: **[BlueAmulet GreenLuma 2023 Manager](https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest)**
 Below text is mostly sourced from ImaniiTy's README
-
 ## What is [GreenLuma 2023](https://cs.rin.ru/forum/viewtopic.php?f=29&t=103709)?
 GreenLuma 2023 (GL2023) is a Steam unlocker made by Steam006 that is used to obtain games from family shared libraries and DLC for games. There's much more to it, though.
 
@@ -47,42 +50,22 @@ Also, keep in mind that not **every game** is available to play through Steam fa
 I **highly advise** you to use the "Legit stealth mode" checking the box "Stealth mode" on my program:
 ![alt text](https://i.imgur.com/xpAXU1b.png)
 
-## Features
-  * Easily manage profiles for various games (good to circumvent the 168 id limit)
-    * Add/Remove 1 or more games at once
-    * Add/Remove profiles
-  * Search for any game you want to add direct from the app
-    * Search results are directly from Steam
-    * Sort the results by Type (DLC, Game, etc..) or Name
-  * Generate the AppList, close Steam and run GreenLuma 2023 in one click
-    * You can choose any GL2023 parameters before launch
-    * It will detect whether Steam is open or not and close it if necessary
-  * All the profiles info are in JSON files so you can easily share with anyone
-    * The profiles are saved on: C:\Users\YOUR_USER\AppData\Local\GLR_Manager\Profiles
 
-![alt text](https://i.imgur.com/B8nDYm3.png)
 
 ## Future Plans (JostenSyon)
-* Work on the UI
-* Manual add for game and dlc by id (already work but i'm looking for a good placement of the gui element)
-
-## Future Plans (BlueAmulet)
-* Work on the UI
-* Add a way to load previous games on your AppList folder
-* Load all DLC for a game instead of the first 64
-* Better error handling
-* Warnings if GL2023 or the manager are in the Steam folder
-* Handling elevated permissions as necessary
+- Menu setting for Light/Dark mode
+- Support External theme
 
 ## Built With
 * [PyQt5](https://www.riverbankcomputing.com/software/pyqt/intro) - The GUI framework
 * [PyInstaller](https://pyinstaller.readthedocs.io/en/stable/index.html) - Used to make the standalone executable
+
 
 ## Authors
 [**ImaniiTy**](https://github.com/ImaniiTy):
 
 ![alt text](https://i.imgur.com/zmS7oBs.gif)
 
-[**BlueAmulet**](https://github.com/BlueAmulet):
+[**BlueAmulet**](https://github.com/BlueAmulet): **[BlueAmulet GreenLuma 2023 Manager](https://github.com/BlueAmulet/GreenLuma-2023-Manager/releases/latest)**
 
 [**JostenSyon**](https://github.com/JostenSyon): this fork
