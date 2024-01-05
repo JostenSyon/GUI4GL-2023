@@ -19,7 +19,7 @@ Thanks also to ImaniiTy, the original developer of the GreenLuma Reborn Manager.
 - All profile info is in JSON files, so you can easily share with anyone
 - It will detect whether Steam is open or not and close it if necessary
 - All the profiles info are in JSON files so you can easily share with anyone
-  - The profiles are saved on: C:\Users\%userprofile%\AppData\Local\GLR_Manager\Profiles
+  - The profiles are saved on: C:\Users\\%userprofile%\AppData\Local\GLR_Manager\Profiles
 - Handles portable GL2023 (not in the Steam folder) (BlueAmulet)
 - Improved searching (BlueAmulet)
 - Enhanced error handling (BlueAmulet)
