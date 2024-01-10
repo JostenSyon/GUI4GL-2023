@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GreenLuma 2023 Manager</string>
+   <string>GUI4GL</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color:rgb(138, 178, 207);</string>
@@ -900,7 +900,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <string notr="true"/>
      </property>
      <property name="text">
-      <string>GreenLuma 2023 Manager</string>
+      <string>GUI4GL - GreenLuma 2024 Manager</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

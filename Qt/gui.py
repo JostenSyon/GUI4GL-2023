@@ -961,7 +961,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "GreenLuma 2023 Manager"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "GUI4GL"))
         self.label_close_steam.setText(_translate("MainWindow", "Closing Steam..."))
         self.label_profile.setText(_translate("MainWindow", "Profile"))
         self.remove_game.setText(_translate("MainWindow", "Remove Games"))
@@ -969,7 +969,7 @@ class Ui_MainWindow(object):
         self.compatibility_mode_checkbox.setText(_translate("MainWindow", "Compatibility Mode"))
         self.label_searching.setText(_translate("MainWindow", "Searching..."))
         self.create_profile.setText(_translate("MainWindow", "New Profile"))
-        self.label_main.setText(_translate("MainWindow", "GreenLuma 2023 Manager"))
+        self.label_main.setText(_translate("MainWindow", "GUI4GL <-> GreenLuma 2024 Manager"))
         self.run_GreenLuma_btn.setText(_translate("MainWindow", "Run GreenLuma"))
         self.add_to_profile.setText(_translate("MainWindow", "Add Games"))
         self.games_list.setSortingEnabled(True)
