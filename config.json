@@ -1,0 +1,12 @@
+{
+    "json_local_path": "C:\\Users\\%userprofile%\\AppData\\Local\\GLR_Manager\\config.json",
+    "github_url": "https://api.github.com/repos/JostenSyon/GUI4GL-2023/releases/latest",
+    "prefix": "v",
+    "direct_download": true,
+    "force_update": false,
+    "download_path": "",
+    "process_name_pre_update": "Gui4GL-2023.exe",
+    "executable_name_post_update": "Gui4GL-2023.exe",
+    "args_post_update": "-NoUpdate -PostUpdate",
+    "untouch": ["Gui4GL-2023.exe"]
+}

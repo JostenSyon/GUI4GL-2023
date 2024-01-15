@@ -15,7 +15,7 @@ from cloudscraper.exceptions import CloudflareException, CaptchaException
 
 BASE_PATH = "{}/GLR_Manager".format(os.getenv("LOCALAPPDATA"))
 PROFILES_PATH = "{}/Profiles".format(BASE_PATH)
-CURRENT_VERSION = "1.4.0"
+CURRENT_VERSION = "1.5.0"
 
 class Game:
     def __init__(self, id, name, type):
@@ -279,17 +279,33 @@ def queryGames(query):
         return err
 
 def runUpdater():
-    if "-NoUpdate" not in sys.argv and config.check_update and os.path.exists("GL2020 Updater.exe"):
+    if "-NoUpdate" not in sys.argv and config.check_update and os.path.exists("GUI4GL-Updater.exe"):
+        print("try to update... \nlaunching Updater")
+
         try:
-            subprocess.run("GL2020 Updater.exe")
+            subprocess.run("GUI4GL-Updater.exe")
         except OSError as err:
             logging.error("Error while checking for updates")
             logging.exception(err)
 
     # Post update measure
     if "-PostUpdate" in sys.argv:
-        for fl in os.listdir("./"):
-            if fl.startswith("new_"):
-                real_name = fl.replace("new_", "")
-                os.remove(real_name)
+        print("PostUpdate cleanUp")
+
+    for fl in os.listdir("./"):
+        if fl.startswith("new_"):
+            real_name = fl.replace("new_", "")
+            # Check if the file exists before trying to remove it
+            if os.path.exists(real_name):
+                try:
+                    # Remove the existing file to avoid FileExistsError
+                    os.remove(real_name)
+                except PermissionError:
+                    print(f"Can't remove {real_name}. Skipped.")
+            try:
+                # Now, rename should work as the existing file has been removed
                 os.rename(fl, real_name)
+            except PermissionError:
+                print(f"Can't rename {fl} to {real_name}. Skipped.")
+
+
