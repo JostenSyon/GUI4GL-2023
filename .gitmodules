@@ -1,0 +1,3 @@
+[submodule "pyGitUpdater"]
+	path = pyGitUpdater
+	url = https://github.com/JostenSyon/PyGitUpdater
